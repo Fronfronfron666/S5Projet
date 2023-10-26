@@ -3,6 +3,7 @@ from picar import front_wheels
 from picar import back_wheels
 import time
 import picar
+import mouvement as mv
 
 
 picar.setup()
@@ -34,6 +35,7 @@ def stop():
 
 if __name__ == '__main__':
     try:
-        start_bouge()
+        #start_bouge()
+    mv.start_fw(70)
     except KeyboardInterrupt:
         stop()
