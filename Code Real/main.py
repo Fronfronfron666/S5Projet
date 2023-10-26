@@ -36,6 +36,6 @@ def stop():
 if __name__ == '__main__':
     try:
         #start_bouge()
-    mv.start_fw(70)
+        mv.start_fw(70)
     except KeyboardInterrupt:
         stop()
