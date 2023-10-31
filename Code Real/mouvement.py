@@ -19,7 +19,7 @@ def checkCallibration():
     turnStraight()
     bw.speed = 50
     time.sleep(5)
-    bw.stop
+    bw.stop()
 
 
 def startFW(targetSpeed):
