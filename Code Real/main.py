@@ -48,8 +48,7 @@ if __name__ == '__main__':
         time.sleep(1)
         print('straight')
         mv.turnWheels(0)
-        fw.turn_straight()
-        mv.startFW(70)
+        mv.checkCallibration()
         #mv.testFW()
     except KeyboardInterrupt:
         stop()
