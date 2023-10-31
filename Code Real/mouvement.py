@@ -7,7 +7,11 @@ import picar
 
 picar.setup()
 fw = front_wheels.Front_Wheels(db='config')
-bw = back_wheels.Back_Wheels (db=' config')
+bw = back_wheels.Back_Wheels (db='config')
+
+def turnWheels(degree):
+	fw.turn(90 + degree)
+
 
 def start_fw(targetSpeed):
     for i in range(targetSpeed):
