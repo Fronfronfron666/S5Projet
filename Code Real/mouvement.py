@@ -12,8 +12,17 @@ bw = back_wheels.Back_Wheels (db='config')
 def turnWheels(degree):
 	fw.turn(90 + degree)
 
+def turnStraight():
+    fw.turn(97)
 
-def start_fw(targetSpeed):
+def checkCallibration():
+    turnStraight()
+    bw.speed = 50
+    time.sleep(5)
+    bw.stop
+
+
+def startFW(targetSpeed):
     for i in range(targetSpeed):
         bw.speed = i
         time.sleep(0.01)
