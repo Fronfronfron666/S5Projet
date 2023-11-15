@@ -98,19 +98,46 @@ def start(position):
             vehicule.location.x = -175
         case 4:
             vehicule.location.x = -225
+            
+def capteurUltrason():
+
+    current_frame = scene.frame_current
+        
+    scene = scene
+    depsgraph1 = bpy.context.evaluated_depsgraph_get()
+    capteur = bpy.data.objects['CapteurUltrason']
+    direction_rayon = (0, -1, 0)
+    longueur_rayon = 4
+    
+    capteur_matrix = capteur.matrix_world
+    capteur_location = capteur_matrix.translation
+
+   
+    result, location, normal, index, object, matrix = bpy.context.scene.ray_cast(depsgraph1, capteur_location, direction_rayon, distance=longueur_rayon)
+    print(location)
+    
+    #distanceObstacle = (capteur.x-location.x)**2 + capteur.location.y  
+    
+    if result:
+        
+        return location
+    
+    else:
+        return -1 
+
     
 def main(scene):
     global current_speed
     vehicule = bpy.context.scene.objects.get("Vehicule")
     
-    print(current_speed)
+    print(capteurUltrason())
     
     current_frame = scene.frame_current
     
     #moveForward(vehicule)
     if current_frame < 1000:
         moveForward(vehicule)
-        turn(vehicule, 30)
+        #turn(vehicule, 30)
     else:
         stop(vehicule)
         #moveBackward(vehicule)
@@ -121,3 +148,6 @@ start(1)
 bpy.app.handlers.frame_change_pre.append(main)
 
 bpy.ops.screen.animation_play()
+
+
+        
