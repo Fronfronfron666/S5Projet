@@ -10,7 +10,7 @@ fw = front_wheels.Front_Wheels(db='config')
 bw = back_wheels.Back_Wheels (db='config')
 
 def turnWheels(degree):
-	fw.turn(90 + degree)
+        fw.turn(90 + degree)
 
 def turnStraight():
     fw.turn(97)
@@ -36,4 +36,3 @@ def testFW():
     for i in range(180):
         print(i)
         fw.turn(i)
-        time.sleep(2)
