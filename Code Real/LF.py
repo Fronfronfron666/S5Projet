@@ -8,8 +8,8 @@ def LF():
     sensors = lf.read_analog()
     for i in range(len(sensors)):
         if sensors[i] > th:
-           sensors[i] = 1
+           sensors[i] = 0
         else:
-            sensors[i] = 0
+            sensors[i] = 1
 
     return sensors
