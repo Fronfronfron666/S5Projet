@@ -4,8 +4,8 @@ from picar import back_wheels
 import time
 import picar
 import mouvement as mv
-import US
-import LF
+import ulrason
+import line_follower
 
 picar.setup()
 fw = front_wheels.Front_Wheels(db='config')
@@ -37,7 +37,7 @@ def stop():
 if __name__ == '__main__':
     try:
         while True:
-                print(LF.LF())
+                print(line_follower.get_line_follower_result())
                 time.sleep(5)
         #start_bouge()
         #print('right')
