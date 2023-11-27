@@ -35,4 +35,3 @@ def startFW(targetSpeed):
 def testFW():
     for i in range(180):
         print(i)
-        fw.turn(i)

@@ -4,7 +4,7 @@ from picar import back_wheels
 import time
 import picar
 import mouvement as mv
-
+import US
 
 picar.setup()
 fw = front_wheels.Front_Wheels(db='config')
@@ -35,20 +35,23 @@ def stop():
 
 if __name__ == '__main__':
     try:
+        while True:
+                print(US.US())
+                time.sleep(5)
         #start_bouge()
-        print('right')
-        mv.turnWheels(90)
-        time.sleep(1)
-        mv.turnWheels(7)
-        time.sleep(1)
-        print('left')
-        mv.turnWheels(-90)
-        time.sleep(1)
-        mv.turnWheels(7)
-        time.sleep(1)
-        print('straight')
-        mv.turnWheels(0)
-        mv.checkCallibration()
+        #print('right')
+        #mv.turnWheels(90)
+        #time.sleep(1)
+        #mv.turnWheels(7)
+        #time.sleep(1)
+        #print('left')
+        #mv.turnWheels(-90)
+        #time.sleep(1)
+        #mv.turnWheels(7)
+        #time.sleep(1)
+        #print('straight')
+        #mv.turnWheels(0)
+        #mv.checkCallibration()
         #mv.testFW()
     except KeyboardInterrupt:
         stop()
