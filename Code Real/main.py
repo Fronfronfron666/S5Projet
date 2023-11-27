@@ -5,6 +5,7 @@ import time
 import picar
 import mouvement as mv
 import US
+import LF
 
 picar.setup()
 fw = front_wheels.Front_Wheels(db='config')
@@ -36,7 +37,7 @@ def stop():
 if __name__ == '__main__':
     try:
         while True:
-                print(US.US())
+                print(LF.LF())
                 time.sleep(5)
         #start_bouge()
         #print('right')
