@@ -37,8 +37,8 @@ def stop():
 if __name__ == '__main__':
     try:
         while True:
-                print(line_follower.get_line_follower_result())
-                time.sleep(5)
+            print(line_follower.get_line_follower_result())
+            time.sleep(5)
         #start_bouge()
         #print('right')
         #mv.turnWheels(90)
