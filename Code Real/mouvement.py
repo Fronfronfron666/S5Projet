@@ -29,7 +29,7 @@ def checkCallibration():
     bw.stop()
 
 
-def check_max_and_min_speed()
+def check_max_and_min_speed():
     global currentspeed, maxspeed
     if currentspeed > maxspeed:
         currentspeed = maxspeed
@@ -38,11 +38,15 @@ def check_max_and_min_speed()
 
 def accelerate():
     global currentspeed
-    if
+
+    currentspeed += 1
     check_max_and_min_speed()
 
 def decelerate():
     global currentspeed
+
+    currentspeed -= 1
+    check_max_and_min_speed()
 
 def startForward(targetSpeed):
     for i in range(targetSpeed):
