@@ -48,6 +48,10 @@ def decelerate():
     currentspeed -= 1
     check_max_and_min_speed()
 
+def move():
+    bw.forward()
+    bw.speed = currentspeed
+
 def startForward(targetSpeed):
     for i in range(targetSpeed):
         bw.speed = i
