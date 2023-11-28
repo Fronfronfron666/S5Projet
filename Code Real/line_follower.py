@@ -92,7 +92,7 @@ def get_turn_value(line_sensor_results, previous_sensor_result, previous_sensor_
 
 def get_line_follower_result():
     line_sensor_result = line_follower.read_analog()
-    for i in range(len(sensors)):
+    for i in range(len(line_sensor_result)):
         if line_sensor_result[i] > threshold:
             line_sensor_result[i] = False
         else:
