@@ -92,7 +92,7 @@ def get_turn_value(line_sensor_results):
     else:
         print("Comprends pas")
 
-    return turn_value, previous_sensor_result, previous_sensor_state
+    return turn_value
 
 
 def get_line_follower_result():
