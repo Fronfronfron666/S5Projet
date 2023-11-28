@@ -49,7 +49,7 @@ def decelerate():
     check_max_and_min_speed()
 
 def move():
-    bw.forward()
+    bw.backward()
     bw.speed = currentspeed
 
 def startForward(targetSpeed):
