@@ -5,7 +5,7 @@ line_follower = Line_Follower.Line_Follower()
 threshold = 100
 previous_sensor_result = [False, False, False, False, False]
 previous_sensor_state = [False, False, False, False, False]
-
+stop_vehicle = False
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
     data = line_sensor_results
     previous_result = previous_sensor_result
@@ -19,13 +19,14 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
 
 
 def get_turn_value(line_sensor_results):
-    global previous_sensor_result, previous_sensor_state
+    global previous_sensor_result, previous_sensor_state, stop_vehicle
     turn_value = 0
     previous_sensor_result, previous_sensor_state = change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state)
 
     print("line_sensor_result       :", line_sensor_results)
     print("previous_sensor_result   :", previous_sensor_result)
     print("previous_sensor_state    :", previous_sensor_state)
+
     if line_sensor_results == [False, False, False, False, False]:
         if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
             turn_value = -45
@@ -37,7 +38,7 @@ def get_turn_value(line_sensor_results):
     elif line_sensor_results == [True, True, True, True, True]:  # stop vehicle
         turn_value = 0
         # stop(vehicle)
-        # stop_vehicle = True
+        stop_vehicle = True
 
     elif line_sensor_results == [True, False, False, False, False]:
         if previous_sensor_state == [False, True, False, False, False] or previous_sensor_state == [True, True, False, False, False] or previous_sensor_state == [False, False, False, False, False]:
