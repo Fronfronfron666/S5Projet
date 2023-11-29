@@ -49,7 +49,7 @@ if __name__ == '__main__':
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
-                else:
+                elif timeSinceDetect > 1.9:
                     mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                     mv.accelerate()
                     mv.move()
