@@ -28,10 +28,10 @@ if __name__ == '__main__':
             #print(us.get_ultrasonic_avoidance())
             #print(timeSinceDetect)
 
-            time.sleep(0.041)
+            time.sleep(timeFrame)
 
-            #if flag:
-                #timeSinceDetect += timeFrame
+            if flag:
+                timeSinceDetect += timeFrame
     except KeyboardInterrupt:
         stop()
 
