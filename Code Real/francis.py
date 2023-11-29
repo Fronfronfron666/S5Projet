@@ -34,14 +34,18 @@ if __name__ == '__main__':
 
             if flag:
                 if timeSinceDetect <= 1:
+                    print("AAA")
                     mv.move_back()
                 elif timeSinceDetect <= 2:
+                    print("BBB")
                     mv.move_back()
                     mv.turn_wheels(-55)
                 elif timeSinceDetect <= 6:
+                    print("CCC")
                     mv.move()
                     mv.turn_wheels(0)
                 elif timeSinceDetect <= 10:
+                    print("DDD")
                     mv.move()
                     mv.turn_wheels(-55)
 
