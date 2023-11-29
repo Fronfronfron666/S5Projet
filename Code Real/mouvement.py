@@ -65,7 +65,7 @@ def get_accceleration():
 
 def accelerate():
     global currentspeed
-    currentspeed += 5
+    currentspeed += 15
     check_max_and_min_speed()
 
 def decelerate():
