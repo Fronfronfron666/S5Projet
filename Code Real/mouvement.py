@@ -89,3 +89,8 @@ def startForward(targetSpeed):
 def testFW():
     for i in range(180):
         print(i)
+
+def stop():
+    global currentspeed
+    currentspeed -= 10
+    check_max_and_min_speed()

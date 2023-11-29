@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 time.sleep(0.1)
                 counter += 0.1
             else:
-                stop()
+                mv.stop()
 
     except KeyboardInterrupt:
-        stop()
+        mv.stop()
