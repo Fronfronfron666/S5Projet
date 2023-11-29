@@ -14,6 +14,7 @@ ajustement_angle_roues = 10
 currentspeed = 0
 MAX_SPEED = 60
 wheel_angle = 0
+is_moving_frontward = True
 
 def turn_wheels(degree):
     global wheel_angle
@@ -74,8 +75,16 @@ def decelerate():
     check_max_and_min_speed()
 
 def move():
-    bw.backward()
-    bw.speed = currentspeed
+    global is_moving_frontward, currentspeed
+    if lf.is_lost:
+        move_back()
+    else:
+        if currentspeed != 0 and is_moving_frontward == False:
+            stop()
+        else:
+            is_moving_frontward = True
+            bw.backward()
+            bw.speed = currentspeed
 
 def startForward(targetSpeed):
     for i in range(targetSpeed):
@@ -91,5 +100,15 @@ def testFW():
 
 def stop():
     global currentspeed
-    currentspeed -= 25
+    currentspeed -= 20
     check_max_and_min_speed()
+
+def move_back():
+    global currentspeed, is_moving_frontward
+    if currentspeed != 0 and is_moving_frontward:
+        stop()
+    else:
+        is_moving_frontward = False
+        currentspeed += 5
+        bw.frontward()
+        bw.speed = currentspeed
