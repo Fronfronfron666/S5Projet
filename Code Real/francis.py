@@ -53,6 +53,7 @@ if __name__ == '__main__':
                     mv.move_frontward()
                     mv.turn_wheels(-50)
                 elif timeSinceDetect > 1.9:
+                    print("EEE")
                     flag = False
                     timeSinceDetect = 0.0
                     #mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
