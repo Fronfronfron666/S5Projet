@@ -12,7 +12,7 @@ bw = back_wheels.Back_Wheels (db='config')
 
 ajustement_angle_roues = 7
 currentspeed = 0
-maxspeed = 500
+MAX_SPEED = 100
 wheel_angle = 0
 
 def turn_wheels(degree):
@@ -33,9 +33,9 @@ def checkCallibration():
 
 
 def check_max_and_min_speed():
-    global currentspeed, maxspeed
-    if currentspeed > maxspeed:
-        currentspeed = maxspeed
+    global currentspeed, MAX_SPEED
+    if currentspeed > MAX_SPEED:
+        currentspeed = MAX_SPEED
     elif currentspeed < 0:
         currentspeed = 0
 
