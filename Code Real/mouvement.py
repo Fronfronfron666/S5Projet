@@ -10,7 +10,7 @@ picar.setup()
 fw = front_wheels.Front_Wheels(db='config')
 bw = back_wheels.Back_Wheels (db='config')
 
-ajustement_angle_roues = 10
+ajustement_angle_roues = 12
 currentspeed = 0
 MAX_SPEED = 100
 wheel_angle = 0
