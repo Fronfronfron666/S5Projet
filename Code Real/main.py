@@ -45,7 +45,7 @@ if __name__ == '__main__':
                 mv.accelerate()
                 mv.move()
                 time.sleep(0.1)
-                counter += 0.1
+                counter += 1
             else:
                 mv.stop()
 
