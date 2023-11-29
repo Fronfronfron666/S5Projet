@@ -39,7 +39,7 @@ counter = 0
 if __name__ == '__main__':
     try:
         while True:
-            if counter < 50:
+            if counter < 10:
                 #mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.turn_wheels(0)
                 mv.accelerate()
@@ -50,4 +50,4 @@ if __name__ == '__main__':
                 mv.stop()
 
     except KeyboardInterrupt:
-        mv.stop()
+        stop()
