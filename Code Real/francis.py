@@ -49,6 +49,8 @@ if __name__ == '__main__':
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-55)
+                else:
+                    stop()
 
 
 
