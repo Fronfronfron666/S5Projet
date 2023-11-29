@@ -32,6 +32,7 @@ if __name__ == '__main__':
             if us.get_ultrasonic_avoidance() <= 4 and not flag:
                 flag = True
                 stop()
+                print("AHIDBFNIOUNFAIOUHWEDIUHFIAUSMLDJASIOPDKASPOMDOAIJNFIUOAWODAOISDOPIASD")
 
             if flag:
                 if timeSinceDetect <= .25:
