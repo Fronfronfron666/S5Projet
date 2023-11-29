@@ -41,7 +41,7 @@ if __name__ == '__main__':
                     print("BBB")
                     mv.move_back()
                     mv.turn_wheels(-55)
-                elif timeSinceDetect <= 1.4:
+                elif timeSinceDetect <= 1.5:
                     print("CCC")
                     mv.move_frontward()
                     mv.turn_wheels(0)
