@@ -22,7 +22,7 @@ if __name__ == '__main__':
     timeSinceDetect = 0
     try:
         while True:
-
+            print(us.get_ultrasonic_avoidance())
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.accelerate()

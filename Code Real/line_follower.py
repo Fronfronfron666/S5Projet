@@ -35,9 +35,9 @@ def get_turn_value(line_sensor_results):
     turn_value = 0
     previous_sensor_result, previous_sensor_state = change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state)
 
-    print("line_sensor_result       :", line_sensor_results)
-    print("previous_sensor_result   :", previous_sensor_result)
-    print("previous_sensor_state    :", previous_sensor_state)
+    #print("line_sensor_result       :", line_sensor_results)
+    #print("previous_sensor_result   :", previous_sensor_result)
+    #print("previous_sensor_state    :", previous_sensor_state)
 
     if line_sensor_results == [False, False, False, False, False]:
 
