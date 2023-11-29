@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 mv.accelerate()
                 mv.move()
 
-            if us.get_ultrasonic_avoidance() == 1:
+            if us.get_ultrasonic_avoidance() <= 2:
                 flag = True
                 stop()
 
