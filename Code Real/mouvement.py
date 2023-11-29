@@ -127,3 +127,16 @@ def move_back():
         check_max_and_min_speed()
         bw.forward()
         bw.speed = currentspeed
+
+
+def move_frontward():
+    global is_moving_frontward, currentspeed
+    #print("is_lost:  ",lf.is_lost)
+    if currentspeed != 0 and is_moving_frontward == False:
+        stop()
+        if currentspeed == 0:
+            is_moving_frontward = True
+    else:
+        is_moving_frontward = True
+        bw.backward()
+        bw.speed = currentspeed
