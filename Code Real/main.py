@@ -50,6 +50,7 @@ if __name__ == '__main__':
             else:
                 print("else")
                 mv.stop()
+                mv.move()
 
     except KeyboardInterrupt:
         stop()
