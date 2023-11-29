@@ -42,14 +42,14 @@ def get_turn_value(line_sensor_results):
     if line_sensor_results == [False, False, False, False, False]:
 
         if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
-            if lost_counter < 10:
+            if lost_counter < 70:
                 turn_value = -55
             else:
                 is_lost = True
                 turn_value = find_line()
 
         elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
-            if lost_counter < 10:
+            if lost_counter < 70:
                 turn_value = 55
             else:
                 is_lost = True
