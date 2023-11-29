@@ -34,13 +34,13 @@ if __name__ == '__main__':
                 stop()
 
             if flag:
-                if timeSinceDetect <= .25:
+                if timeSinceDetect <= .15:
                     print("AAA")
                     mv.move_back()
-                elif timeSinceDetect <= .75:
+                elif timeSinceDetect <= .5:
                     print("BBB")
                     mv.move_back()
-                    mv.turn_wheels(-45)
+                    mv.turn_wheels(-55)
                 elif timeSinceDetect <= 1.5:
                     print("CCC")
                     mv.move_frontward()
