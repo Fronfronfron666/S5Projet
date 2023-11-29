@@ -50,7 +50,7 @@ if __name__ == '__main__':
                     mv.move_frontward()
                     mv.turn_wheels(-55)
                 else:
-                    stop()
+                    flag = False
 
 
 
