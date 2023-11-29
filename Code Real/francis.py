@@ -28,14 +28,14 @@ if __name__ == '__main__':
                 mv.accelerate()
                 mv.move()
 
-            if us.get_ultrasonic_avoidance() <= 2:
+            if us.get_ultrasonic_avoidance() <= 4:
                 flag = True
                 stop()
 
             if flag:
-                if timeSinceDetect <= 2:
+                if timeSinceDetect <= 1:
                     mv.move_back()
-                elif timeSinceDetect <= 3:
+                elif timeSinceDetect <= 2:
                     mv.move_back()
                     mv.turn_wheels(-55)
                 elif timeSinceDetect <= 6:
