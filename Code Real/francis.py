@@ -48,7 +48,7 @@ if __name__ == '__main__':
                 elif timeSinceDetect <= 2:
                     print("DDD")
                     mv.move_frontward()
-                    mv.turn_wheels(-55)
+                    mv.turn_wheels(-50)
                 else:
                     flag = False
 
