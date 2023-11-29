@@ -12,7 +12,7 @@ bw = back_wheels.Back_Wheels (db='config')
 
 ajustement_angle_roues = 10
 currentspeed = 0
-MAX_SPEED = 80
+MAX_SPEED = 30
 wheel_angle = 0
 
 def turn_wheels(degree):
