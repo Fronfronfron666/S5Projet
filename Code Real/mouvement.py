@@ -81,8 +81,11 @@ def move():
         print("move back")
         move_back()
     else:
+
         if currentspeed != 0 and is_moving_frontward == False:
             stop()
+            if currentspeed == 0:
+                is_moving_frontward = True
         else:
             is_moving_frontward = True
             bw.backward()
