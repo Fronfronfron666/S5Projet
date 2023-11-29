@@ -79,7 +79,6 @@ def move():
     print("is_lost:  ",lf.is_lost)
     if lf.is_lost:
         print("move back")
-
         move_back()
     else:
         if currentspeed != 0 and is_moving_frontward == False:
@@ -108,6 +107,7 @@ def stop():
 
 def move_back():
     global currentspeed, is_moving_frontward
+    print("is moving_frontward  :", is_moving_frontward)
     if currentspeed != 0 and is_moving_frontward:
         stop()
     else:
