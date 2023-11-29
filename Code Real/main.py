@@ -40,7 +40,7 @@ if __name__ == '__main__':
     try:
         while True:
             print("counter: ", counter)
-            if counter < 10:
+            if counter < 100:
                 #mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.turn_wheels(0)
                 mv.accelerate()
