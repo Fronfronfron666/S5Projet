@@ -28,7 +28,7 @@ if __name__ == '__main__':
             print(us.get_ultrasonic_avoidance())
             print(timeSinceDetect)
 
-            time.sleep(timeFrame)
+            time.sleep(0.141)
 
             #if flag:
                 #timeSinceDetect += timeFrame
