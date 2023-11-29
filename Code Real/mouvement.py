@@ -113,12 +113,13 @@ def stop():
 def move_back():
     global currentspeed, is_moving_frontward
     print("is moving_frontward  :", is_moving_frontward)
-    if currentspeed == 0:
-        is_moving_frontward = False
-    elif is_moving_frontward:
+    if is_moving_frontward:
+        print("ici")
         stop()
+        if currentspeed ==0:
+            is_moving_frontward = False
     else:
-        is_moving_frontward = False
+        print("no")
         currentspeed += 5
         bw.frontward()
         bw.speed = currentspeed
