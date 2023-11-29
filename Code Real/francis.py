@@ -18,17 +18,17 @@ def stop():
 
 
 if __name__ == '__main__':
-    flag = False
-    timeSinceDetect = 0.0
+    #flag = False
+    #timeSinceDetect = 0.0
     try:
         while True:
             mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
             mv.accelerate()
             mv.move()
-            print(us.get_ultrasonic_avoidance())
-            print(timeSinceDetect)
+            #print(us.get_ultrasonic_avoidance())
+            #print(timeSinceDetect)
 
-            time.sleep(0.141)
+            time.sleep(0.041)
 
             #if flag:
                 #timeSinceDetect += timeFrame
