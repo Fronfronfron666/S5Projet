@@ -40,7 +40,7 @@ if __name__ == '__main__':
                 elif timeSinceDetect <= .75:
                     print("BBB")
                     mv.move_back()
-                    mv.turn_wheels(-55)
+                    mv.turn_wheels(-45)
                 elif timeSinceDetect <= 1.5:
                     print("CCC")
                     mv.move_frontward()
