@@ -28,7 +28,12 @@ if __name__ == '__main__':
                 mv.move()
                 # print(us.get_ultrasonic_avoidance())
                 # print(timeSinceDetect)
-
+                if us.get_ultrasonic_avoidance() <= 4 and not flag:
+                    flag = True
+                    stop()
+                    print("AHIDBFNIOUNFAIOUHWEDIUHFIAUSMLDJASIOPDKASPOMDOAIJNFIUOAWODAOISDOPIASD")
+            else:
+                stop()
             time.sleep(timeFrame)
 
             if flag:
