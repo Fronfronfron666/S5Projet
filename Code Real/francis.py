@@ -45,7 +45,7 @@ if __name__ == '__main__':
                     print("CCC")
                     mv.move_frontward()
                     mv.turn_wheels(0)
-                elif timeSinceDetect <= 2:
+                elif timeSinceDetect <= 1.9:
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
