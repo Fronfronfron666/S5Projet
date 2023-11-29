@@ -46,6 +46,8 @@ if __name__ == '__main__':
                     mv.move_frontward()
                     mv.turn_wheels(0)
                 elif timeSinceDetect <= 1.9:
+                    line_follower.previous_sensor_state = [False, False, False, False, False]
+                    line_follower.previous_sensor_result = [False, False, False, False, False]
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
