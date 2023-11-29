@@ -46,10 +46,9 @@ if __name__ == '__main__':
                     mv.move_frontward()
                     mv.turn_wheels(0)
                 elif timeSinceDetect <= 2:
-                    stop()
-                #    print("DDD")
-                #    mv.move_frontward()
-                #    mv.turn_wheels(-55)
+                    print("DDD")
+                    mv.move_frontward()
+                    mv.turn_wheels(-55)
 
 
 
