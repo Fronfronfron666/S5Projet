@@ -42,7 +42,7 @@ if __name__ == '__main__':
             print("counter: ", counter)
 
             #mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
-            mv.turn_wheels(0)
+            mv.turn_wheels(45)
             mv.accelerate()
             mv.move()
             counter += 1
