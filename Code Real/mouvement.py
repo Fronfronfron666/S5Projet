@@ -76,8 +76,10 @@ def decelerate():
 
 def move():
     global is_moving_frontward, currentspeed
+    print("is_lost:  ",lf.is_lost)
     if lf.is_lost:
         print("move back")
+
         move_back()
     else:
         if currentspeed != 0 and is_moving_frontward == False:
