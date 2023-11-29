@@ -92,5 +92,5 @@ def testFW():
 
 def stop():
     global currentspeed
-    currentspeed -= 30
+    currentspeed -= 20
     check_max_and_min_speed()
