@@ -37,11 +37,11 @@ if __name__ == '__main__':
                 if timeSinceDetect <= .25:
                     print("AAA")
                     mv.move_back()
-                elif timeSinceDetect <= .5:
+                elif timeSinceDetect <= 1:
                     print("BBB")
                     mv.move_back()
                     mv.turn_wheels(-55)
-                elif timeSinceDetect <= 1:
+                elif timeSinceDetect <= 1.5:
                     print("CCC")
                     mv.move_frontward()
                     mv.turn_wheels(0)
