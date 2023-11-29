@@ -34,7 +34,7 @@ if __name__ == '__main__':
                 stop()
 
             if flag:
-                if timeSinceDetect <= .15:
+                if timeSinceDetect <= .2:
                     print("AAA")
                     mv.move_back()
                 elif timeSinceDetect <= .5:
