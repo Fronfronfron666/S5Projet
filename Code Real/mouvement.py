@@ -124,5 +124,6 @@ def move_back():
     else:
         print("no")
         currentspeed += 5
+        check_max_and_min_speed()
         bw.forward()
         bw.speed = currentspeed
