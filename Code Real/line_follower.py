@@ -30,9 +30,9 @@ def get_turn_value(line_sensor_results):
 
     if line_sensor_results == [False, False, False, False, False]:
         if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
-            turn_value = -45
+            turn_value = -55
         elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
-            turn_value = 45
+            turn_value = 55
         else:  # perdu
             turn_value = 0
 
@@ -43,13 +43,13 @@ def get_turn_value(line_sensor_results):
 
     elif line_sensor_results == [True, False, False, False, False]:
         if previous_sensor_state == [False, True, False, False, False] or previous_sensor_state == [True, True, False, False, False] or previous_sensor_state == [False, False, False, False, False]:
-            turn_value = -30
+            turn_value = -40
         else:
             turn_value = 20
 
     elif line_sensor_results == [False, False, False, False, True]:
         if previous_sensor_state == [False, False, False, True, False] or previous_sensor_state == [False, False, False, True, True] or previous_sensor_state == [False, False, False, False, False]:
-            turn_value = 30
+            turn_value = 40
         else:
             turn_value = -20
 
