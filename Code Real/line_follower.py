@@ -1,5 +1,5 @@
 from SunFounder_Line_Follower import Line_Follower
-import time
+import mouvement as mv
 
 line_follower = Line_Follower.Line_Follower()
 threshold = 100
@@ -38,7 +38,7 @@ def get_turn_value(line_sensor_results):
 
     elif line_sensor_results == [True, True, True, True, True]:  # stop vehicle
         turn_value = 0
-        # stop(vehicle)
+        mv.stop()
         stop_vehicle = True
 
     elif line_sensor_results == [True, False, False, False, False]:
