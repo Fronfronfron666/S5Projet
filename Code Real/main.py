@@ -34,19 +34,15 @@ def stop():
     bw.stop()
     fw.turn_straight()
 
-counter = 0
-
 if __name__ == '__main__':
     try:
         while True:
-            print("counter: ", counter)
 
             mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
             #mv.turn_wheels(50)
             mv.accelerate()
             mv.move()
-            counter += 1
-
             time.sleep(0.041)
+
     except KeyboardInterrupt:
         stop()
