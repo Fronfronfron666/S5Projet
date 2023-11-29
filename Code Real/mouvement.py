@@ -117,12 +117,10 @@ def move_back():
     global currentspeed, is_moving_frontward
     #print("is moving_frontward  :", is_moving_frontward)
     if is_moving_frontward:
-        print("ici")
         stop()
         if currentspeed ==0:
             is_moving_frontward = False
     else:
-        print("no")
         currentspeed += 5
         check_max_and_min_speed()
         bw.forward()
