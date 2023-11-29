@@ -40,8 +40,8 @@ if __name__ == '__main__':
     try:
         while True:
             if counter < 50:
-                #mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
-                mv.turn_wheels(45)
+                mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
+                #mv.turn_wheels(45)
                 mv.accelerate()
                 mv.move()
                 time.sleep(0.1)
