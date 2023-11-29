@@ -48,6 +48,7 @@ if __name__ == '__main__':
                 time.sleep(0.1)
                 counter += 1
             else:
+                print("else")
                 mv.stop()
 
     except KeyboardInterrupt:
