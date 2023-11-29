@@ -34,29 +34,20 @@ def stop():
     bw.stop()
     fw.turn_straight()
 
+counter = 0
+
 if __name__ == '__main__':
     try:
         while True:
-            mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
+            if counter < 10:
+                mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
 
-            mv.accelerate()
-            mv.move()
-            time.sleep(0.1)
+                mv.accelerate()
+                mv.move()
+                time.sleep(0.1)
+                counter += 0.1
+            else:
+                stop()
 
-        #start_bouge()
-        #print('right')
-        #mv.turnWheels(90)
-        #time.sleep(1)
-        #mv.turnWheels(7)
-        #time.sleep(1)
-        #print('left')
-        #mv.turnWheels(-90)
-        #time.sleep(1)
-        #mv.turnWheels(7)
-        #time.sleep(1)
-        #print('straight')
-        #mv.turnWheels(0)
-        #mv.checkCallibration()
-        #mv.testFW()
     except KeyboardInterrupt:
         stop()

@@ -3,6 +3,7 @@ from picar import front_wheels
 from picar import back_wheels
 import time
 import picar
+import line_follower as lf
 
 
 picar.setup()
@@ -12,12 +13,14 @@ bw = back_wheels.Back_Wheels (db='config')
 ajustement_angle_roues = 7
 currentspeed = 0
 maxspeed = 30
+wheel_angle = 0
 
 def turn_wheels(degree):
-    angle = 90 + degree + ajustement_angle_roues
-    if angle > 180:
-        angle = 180
-    fw.turn(angle)
+    global wheel_angle
+    wheel_angle = 90 + degree + ajustement_angle_roues
+    if wheel_angle > 180:
+        wheel_angle = 180
+    fw.turn(wheel_angle)
 
 def turnStraight():
     fw.turn(97)
@@ -36,9 +39,31 @@ def check_max_and_min_speed():
     elif currentspeed < 0:
         currentspeed = 0
 
+def is_turning():
+    turning = False
+    if lf.current_wheel_angle != 0:
+        turning = True
+    return turning
+
+def avancer_test():
+    acceleration = 5
+
+
+def get_accceleration():
+    acceleration = 5
+    wheel_angle = lf.current_wheel_angle
+    if wheel_angle != 0:
+        if wheel_angle <= -10 or wheel_angle >= 10:
+            if wheel_angle <= -20 or wheel_angle >= 20:
+                acceleration = 2
+            else:
+                acceleration = 3
+        else:
+            acceleration = 4
+    return acceleration
+
 def accelerate():
     global currentspeed
-
     currentspeed += 1
     check_max_and_min_speed()
 

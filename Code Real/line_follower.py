@@ -6,6 +6,7 @@ threshold = 100
 previous_sensor_result = [False, False, False, False, False]
 previous_sensor_state = [False, False, False, False, False]
 stop_vehicle = False
+current_wheel_angle = 0
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
     data = line_sensor_results
     previous_result = previous_sensor_result
@@ -19,7 +20,7 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
 
 
 def get_turn_value(line_sensor_results):
-    global previous_sensor_result, previous_sensor_state, stop_vehicle
+    global previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle
     turn_value = 0
     previous_sensor_result, previous_sensor_state = change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state)
 
@@ -92,7 +93,7 @@ def get_turn_value(line_sensor_results):
             turn_value = 12
     else:
         print("Comprends pas")
-
+    current_wheel_angle = turn_value
     return turn_value
 
 
