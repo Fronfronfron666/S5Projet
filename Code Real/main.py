@@ -45,12 +45,11 @@ if __name__ == '__main__':
                 mv.turn_wheels(0)
                 mv.accelerate()
                 mv.move()
-                time.sleep(0.1)
                 counter += 1
             else:
                 print("else")
                 mv.stop()
                 mv.move()
-
+            time.sleep(0.1)
     except KeyboardInterrupt:
         stop()
