@@ -104,6 +104,11 @@ def stop():
     global currentspeed
     currentspeed -= 20
     check_max_and_min_speed()
+    if currentspeed == 0:
+        bw.stop()
+    else:
+        bw.speed = currentspeed
+
 
 def move_back():
     global currentspeed, is_moving_frontward
