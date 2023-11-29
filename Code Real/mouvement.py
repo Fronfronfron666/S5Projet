@@ -24,7 +24,7 @@ def turn_wheels(degree):
     fw.turn(wheel_angle)
 
 def turnStraight():
-    fw.turn(97)
+    turn_wheels(0)
 
 def checkCallibration():
     turnStraight()
@@ -132,11 +132,11 @@ def move_back():
 def move_frontward():
     global is_moving_frontward, currentspeed
     #print("is_lost:  ",lf.is_lost)
-    if currentspeed != 0 and is_moving_frontward == False:
+    if not is_moving_frontward:
         stop()
         if currentspeed == 0:
             is_moving_frontward = True
     else:
-        is_moving_frontward = True
         bw.backward()
+        accelerate()
         bw.speed = currentspeed
