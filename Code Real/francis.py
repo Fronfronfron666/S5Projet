@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
             time.sleep(timeFrame)
 
-            if flag():
+            if flag:
                 timeSinceDetect += timeFrame
     except KeyboardInterrupt:
         stop()
