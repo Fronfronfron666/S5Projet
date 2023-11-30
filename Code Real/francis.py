@@ -30,12 +30,13 @@ if __name__ == '__main__':
 
             range_value = us.get_ultrasonic_avoidance()
             print(range_value)
-            if range_value <= 4 and not flag:
+            if range_value <= 2 and not flag:
                 flag = True
                 stop()
                 print("AHIDBFNIOUNFAIOUHWEDIUHFIAUSMLDJASIOPDKASPOMDOAIJNFIUOAWODAOISDOPIASD")
 
             if flag:
+                print("Time:    ", timeSinceDetect)
                 if timeSinceDetect <= .25:
                     print("AAA")
                     mv.move_back()
@@ -64,8 +65,8 @@ if __name__ == '__main__':
                     print("EEE")
                     flag = False
                     timeSinceDetect = 0.0
-
             time.sleep(timeFrame)
+
 
             if flag:
                 timeSinceDetect += timeFrame
