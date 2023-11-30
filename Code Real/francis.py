@@ -53,16 +53,16 @@ if __name__ == '__main__':
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
-                elif timeSinceDetect <= 4.9:
+                elif timeSinceDetect <= 4.7:
                     mv.move_frontward()
                     mv.turn_wheels(0)
-                elif timeSinceDetect <= 5.6:
+                elif timeSinceDetect <= 5.4:
                     line_follower.previous_sensor_state = [False, False, False, False, False]
                     line_follower.previous_sensor_result = [False, False, False, False, False]
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
-                elif timeSinceDetect > 5.6:
+                elif timeSinceDetect > 5.4:
                     print("EEE")
                     flag = False
                     timeSinceDetect = 0.0
