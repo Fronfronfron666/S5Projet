@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
             range_value = us.get_ultrasonic_avoidance()
             print(range_value)
-            if range_value <= 2 and not flag:
+            if range_value <= 3 and not flag:
                 flag = True
                 stop()
                 print("AHIDBFNIOUNFAIOUHWEDIUHFIAUSMLDJASIOPDKASPOMDOAIJNFIUOAWODAOISDOPIASD")
