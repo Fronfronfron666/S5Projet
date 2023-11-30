@@ -9,6 +9,7 @@ stop_vehicle = False
 current_wheel_angle = 0
 lost_counter = 0
 is_lost = False
+is_stopped = False
 
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
     data = line_sensor_results
@@ -31,7 +32,7 @@ def find_line():
 
 
 def get_turn_value(line_sensor_results):
-    global previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle, lost_counter, is_lost
+    global previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle, lost_counter, is_lost, is_stopped
     turn_value = 0
     previous_sensor_result, previous_sensor_state = change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state)
 
@@ -64,6 +65,7 @@ def get_turn_value(line_sensor_results):
         if line_sensor_results == [True, True, True, True, True] and previous_sensor_state != [False, False, False, False, False]:  # stop vehicle
             turn_value = 0
             mv.stop()
+            is_stopped = True
             stop_vehicle = True
 
         elif line_sensor_results == [True, False, False, False, False]:
