@@ -21,13 +21,8 @@ flag = True
 if __name__ == '__main__':
     try:
         while True:
-            if flag:
-                mv.turn_wheels(100)
-                flag = False
-            else:
-                mv.turn_wheels(55)
-
-            time.sleep(2.0)
+            mv.accelerate()
+            mv.spin_left()
 
     except KeyboardInterrupt:
         stop()
