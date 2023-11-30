@@ -10,7 +10,6 @@ lost_counter = 0
 is_lost = False
 is_stopped = False
 is_spinning = False
-is_spinning_hard = False
 
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
     data = line_sensor_results
@@ -33,7 +32,7 @@ def find_line():
 
 
 def get_turn_value(line_sensor_results):
-    global is_spinning_hard,is_spinning, previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle, lost_counter, is_lost, is_stopped
+    global is_spinning, previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle, lost_counter, is_lost, is_stopped
     turn_value = 0
     previous_sensor_result, previous_sensor_state = change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state)
 
@@ -41,27 +40,20 @@ def get_turn_value(line_sensor_results):
     print("previous_sensor_result   :", previous_sensor_result)
     print("previous_sensor_state    :", previous_sensor_state)
     is_spinning = False
-    is_spinning_hard = False
     if line_sensor_results == [False, False, False, False, False]:
 
         if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
-            if lost_counter < 50:
+            if lost_counter < 60:
                 turn_value = -55
                 is_spinning = True
-            elif lost_counter < 100:
-                turn_value = -55
-                is_spinning_hard = True
             else:
                 is_lost = True
                 turn_value = find_line()
 
         elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
-            if lost_counter < 50:
+            if lost_counter < 60:
                 turn_value = 55
                 is_spinning = True
-            elif lost_counter < 100:
-                turn_value = 55
-                is_spinning_hard = True
             else:
                 is_lost = True
                 turn_value = find_line()
