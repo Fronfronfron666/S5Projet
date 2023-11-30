@@ -20,6 +20,7 @@ def stop():
 if __name__ == '__main__':
     flag = False
     timeSinceDetect = 0.0
+    range_value = 0
     try:
         while True:
             print(timeSinceDetect)
@@ -27,9 +28,9 @@ if __name__ == '__main__':
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.accelerate()
                 mv.move()
+                range_value = us.get_ultrasonic_avoidance()
+                print(range_value)
 
-            range_value = us.get_ultrasonic_avoidance()
-            print(range_value)
             if range_value <= 3 and not flag:
                 flag = True
                 stop()
