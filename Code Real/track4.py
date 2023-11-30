@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import keyboard
 from picar import front_wheels
 from picar import back_wheels
 import time
