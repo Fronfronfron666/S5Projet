@@ -33,6 +33,7 @@ def checkCallibration():
     bw.stop()
 
 def spin_left():
+    print(lf.is_spinning_hard)
     if lf.is_spinning_hard:
         bw.left_wheel.forward()
         bw.right_wheel.backward()
@@ -42,6 +43,7 @@ def spin_left():
     bw.speed = currentspeed
 
 def spin_right():
+    print(lf.is_spinning_hard)
     if lf.is_spinning_hard:
         bw.left_wheel.backward()
         bw.right_wheel.forward()
