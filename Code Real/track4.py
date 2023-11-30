@@ -16,14 +16,20 @@ def stop():
     bw.stop()
     fw.turn_straight()
 
+counter = 0
+
 if __name__ == '__main__':
     try:
         while True:
-            turn_value = line_follower.get_turn_value(line_follower.get_line_follower_result())
-            mv.turn_wheels(0)
-            mv.accelerate()
-            mv.move_back_track_4()
-
+            counter += 1
+            if counter <= 100
+                #turn_value = line_follower.get_turn_value(line_follower.get_line_follower_result())
+                mv.turn_wheels(0)
+                mv.accelerate()
+                mv.move_back_track_4()
+                time.sleep(0.041)
+            else:
+                stop()
 
     except KeyboardInterrupt:
         stop()
