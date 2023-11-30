@@ -61,7 +61,7 @@ if __name__ == '__main__':
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
-                elif timeSinceDetect > 5.5:
+                elif timeSinceDetect > 5.0:
                     print("EEE")
                     flag = False
                     timeSinceDetect = 0.0
