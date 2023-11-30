@@ -19,25 +19,10 @@ def stop():
 if __name__ == '__main__':
     try:
         while True:
-            if keyboard.is_pressed("w") and keyboard.is_pressed("s"):
-                mv.stop()
-            elif keyboard.is_pressed("w"):
-                mv.accelerate()
-                bw.forward()
-            elif keyboard.is_pressed("s"):
-                mv.accelerate()
-                bw.backward()
-            else:
-                mv.stop()
+            mv.turn_wheels(100)
+            time.sleep(10)
+            mv.turn_wheels(-100)
 
-            if keyboard.is_pressed("a") and keyboard.is_pressed("d"):
-                mv.turn_wheels(0)
-            elif keyboard.is_pressed("a"):
-                mv.turn_wheels(-45)
-            elif keyboard.is_pressed("d"):
-                mv.turn_wheels(45)
-            else:
-                mv.turn_wheels(0)
 
 
     except KeyboardInterrupt:
