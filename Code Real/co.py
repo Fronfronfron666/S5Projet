@@ -16,14 +16,18 @@ def stop():
     bw.stop()
     fw.turn_straight()
 
+flag = True
+
 if __name__ == '__main__':
     try:
         while True:
-            mv.turn_wheels(100)
-            time.sleep(2)
-            mv.turn_wheels(0)
+            if flag:
+                mv.turn_wheels(100)
+                flag = False
+            else:
+                mv.turn_wheels(0)
 
-
+            time.sleep(0.041)
 
     except KeyboardInterrupt:
         stop()
