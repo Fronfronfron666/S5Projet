@@ -41,7 +41,7 @@ if __name__ == '__main__':
                 if timeSinceDetect <= 0.25:
                     print("AAA")
                     mv.move_back()
-                elif timeSinceDetect <= 2.5:
+                elif timeSinceDetect <= 2:
                     print("BBB")
                     mv.move_back()
                     mv.turn_wheels(-55)
