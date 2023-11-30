@@ -27,7 +27,7 @@ if __name__ == '__main__':
             else:
                 mv.turn_wheels(0)
 
-            time.sleep(0.041)
+            time.sleep(1.0)
 
     except KeyboardInterrupt:
         stop()
