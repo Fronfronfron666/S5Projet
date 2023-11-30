@@ -94,6 +94,12 @@ def move():
     else:
         stop()
 
+def move_back_track_4():
+    if not lf.is_stopped:
+        is_moving_frontward = False
+        bw.forward()
+        bw.speed = currentspeed
+
 def startForward(targetSpeed):
     for i in range(targetSpeed):
         bw.speed = i

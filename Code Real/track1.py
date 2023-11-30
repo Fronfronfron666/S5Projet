@@ -16,7 +16,6 @@ def stop():
     bw.stop()
     fw.turn_straight()
 
-
 if __name__ == '__main__':
     flag = False
     timeSinceDetect = 0.0
@@ -67,7 +66,6 @@ if __name__ == '__main__':
                     flag = False
                     timeSinceDetect = 0.0
             time.sleep(timeFrame)
-
 
             if flag:
                 timeSinceDetect += timeFrame
