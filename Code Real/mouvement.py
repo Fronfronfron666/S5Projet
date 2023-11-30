@@ -103,6 +103,33 @@ def move():
     else:
         stop()
 
+def move_with_spin():
+    global is_moving_frontward, currentspeed
+    #print("is_lost:  ",lf.is_lost)
+    if not lf.is_stopped:
+        if lf.is_lost:
+            print("move back")
+            move_back()
+        else:
+
+            if currentspeed != 0 and is_moving_frontward == False:
+                stop()
+                if currentspeed == 0:
+                    is_moving_frontward = True
+            else:
+                is_moving_frontward = True
+                if lf.is_spinning:
+                    if lf.get_turn_value(lf.get_line_follower_result()) < 0:
+                        spin_left()
+                    else:
+                        spin_right()
+                else:
+                    bw.backward()
+                    bw.speed = currentspeed
+    else:
+        stop()
+
+
 def move_back_track_4():
     if not lf.is_stopped:
         is_moving_frontward = False
