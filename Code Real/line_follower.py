@@ -61,7 +61,7 @@ def get_turn_value(line_sensor_results):
     else:
         lost_counter = 0
         is_lost = False
-        if line_sensor_results == [True, True, True, True, True]:  # stop vehicle
+        if line_sensor_results == [True, True, True, True, True] and previous_sensor_state != [False, False, False, False, False]:  # stop vehicle
             turn_value = 0
             mv.stop()
             stop_vehicle = True

@@ -27,9 +27,10 @@ if __name__ == '__main__':
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.accelerate()
                 mv.move()
-                print(us.get_ultrasonic_avoidance())
 
-            if us.get_ultrasonic_avoidance() <= 4 and not flag:
+            range_value = us.get_ultrasonic_avoidance()
+            print(range_value)
+            if range_value <= 4 and not flag:
                 flag = True
                 stop()
                 print("AHIDBFNIOUNFAIOUHWEDIUHFIAUSMLDJASIOPDKASPOMDOAIJNFIUOAWODAOISDOPIASD")
@@ -56,12 +57,6 @@ if __name__ == '__main__':
                     print("EEE")
                     flag = False
                     timeSinceDetect = 0.0
-                    #mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
-                    #mv.accelerate()
-                    #mv.move()
-
-
-
 
             time.sleep(timeFrame)
 
