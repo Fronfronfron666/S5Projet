@@ -38,18 +38,18 @@ if __name__ == '__main__':
 
             if flag:
                 print("Time:    ", timeSinceDetect)
-                if timeSinceDetect <= .25:
+                if timeSinceDetect <= 0.25:
                     print("AAA")
                     mv.move_back()
-                elif timeSinceDetect <= .7:
+                elif timeSinceDetect <= 1.25:
                     print("BBB")
                     mv.move_back()
                     mv.turn_wheels(-55)
-                elif timeSinceDetect <= 1.5:
+                elif timeSinceDetect <= 2.25:
                     print("CCC")
                     mv.move_frontward()
                     mv.turn_wheels(0)
-                elif timeSinceDetect <= 1.75:
+                elif timeSinceDetect <= 2.6:
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
