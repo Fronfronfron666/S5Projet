@@ -33,13 +33,13 @@ def checkCallibration():
     bw.stop()
 
 def spin_left():
-    bw.left_wheel.backward()
-    bw.right_wheel.forward()
+    bw.left_wheel.stop()
+    bw.right_wheel.backward()
     bw.speed = currentspeed
 
 def spin_right():
-    bw.left_wheel.forward()
-    bw.right_wheel.backward()
+    bw.left_wheel.backward()
+    bw.right_wheel.stop()
     bw.speed = currentspeed
 
 def check_max_and_min_speed():
