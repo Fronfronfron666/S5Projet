@@ -21,7 +21,7 @@ if __name__ == '__main__':
         while True:
             mv.turn_wheels(100)
             time.sleep(2)
-            mv.turn_wheels(55)
+            mv.turn_wheels(0)
 
 
 
