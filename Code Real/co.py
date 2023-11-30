@@ -20,8 +20,8 @@ if __name__ == '__main__':
     try:
         while True:
             mv.turn_wheels(100)
-            time.sleep(10)
-            mv.turn_wheels(-100)
+            time.sleep(2)
+            mv.turn_wheels(55)
 
 
 
