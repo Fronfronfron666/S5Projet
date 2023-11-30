@@ -47,13 +47,20 @@ if __name__ == '__main__':
                     print("CCC")
                     mv.move_frontward()
                     mv.turn_wheels(0)
+                elif timeSinceDetect <= 1.7:
+                    print("DDD")
+                    mv.move_frontward()
+                    mv.turn_wheels(-50)
                 elif timeSinceDetect <= 1.9:
+                    mv.move_frontward()
+                    mv.turn_wheels(0)
+                elif timeSinceDetect <= 2.1:
                     line_follower.previous_sensor_state = [False, False, False, False, False]
                     line_follower.previous_sensor_result = [False, False, False, False, False]
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
-                elif timeSinceDetect > 1.9:
+                elif timeSinceDetect > 2.3:
                     print("EEE")
                     flag = False
                     timeSinceDetect = 0.0
