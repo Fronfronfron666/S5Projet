@@ -23,7 +23,7 @@ if __name__ == '__main__':
         while True:
             counter += 1
             print(counter)
-            if counter <= 48:
+            if counter <= 49:
                 #turn_value = line_follower.get_turn_value(line_follower.get_line_follower_result())
                 mv.turn_wheels(0)
                 mv.accelerate()
