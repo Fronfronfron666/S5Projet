@@ -180,4 +180,4 @@ def move_frontward():
 
 
 def get_turning_factor_on_speed_value():
-    return 1 - ((np.abs(lf.current_wheel_angle/55)/3))
+    return 1 - ((np.abs(wheel_angle/55)/3))
