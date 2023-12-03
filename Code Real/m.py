@@ -88,3 +88,5 @@ if __name__ == '__main__':
     p_distance = multiprocessing.Process(target=process_sensor_distance, args=(number, q))
     p_picar.start()
     p_distance.start()
+    p_picar.join()
+    p_distance.join()
