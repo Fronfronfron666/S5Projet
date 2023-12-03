@@ -153,7 +153,9 @@ def move_back():
         set_current_speed()
 
 def set_current_speed():
-    bw.speed = currentspeed * get_turning_factor_on_speed_value()
+    new_speed = int(currentspeed * get_turning_factor_on_speed_value())
+    print(new_speed)
+    bw.speed = new_speed
 
 
 def move_frontward():
