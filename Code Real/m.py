@@ -25,6 +25,7 @@ def stop():
 def dodge():
     global detection_time, flag
     time_since_detect = time.perf_counter() - detection_time
+    print("time since detection:    ",time_since_detect)
     if time_since_detect <= 0.25:
         mv.stop()
     elif time_since_detect <= 1.4:
