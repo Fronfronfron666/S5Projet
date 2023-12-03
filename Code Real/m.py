@@ -28,7 +28,7 @@ def process_picar(number, q):
         #mv.move()
         mv.move_with_spin()
         time.sleep(0.041)
-        if q.empty() is not False:
+        if q.empty() is False:
             last_range_value = q.get()
         print("last range value", last_range_value)
 
