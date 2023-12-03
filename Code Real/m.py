@@ -65,6 +65,7 @@ def process_picar(number, q):
                     detection_time = time.perf_counter()
                     stop()
                     flag = True
+                    last_range_value = 50
             else:
                 print("Dodging")
                 dodge()
