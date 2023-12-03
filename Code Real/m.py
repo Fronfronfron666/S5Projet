@@ -31,6 +31,7 @@ def process_picar(q):
 def process_sensor_distance(q):
     while True:
         range_value = us.get_ultrasonic_avoidance()
+        print("got range:   ", range_value)
         q.put(range_value)
 
 
