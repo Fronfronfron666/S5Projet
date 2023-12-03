@@ -10,7 +10,7 @@ import multiprocessing
 
 picar.setup()
 fw = front_wheels.Front_Wheels(db='config')
-bw = back_wheels.Back_Wheels (db=' config')
+bw = back_wheels.Back_Wheels(db=' config')
 
 flag = False
 detection_time = time.perf_counter()
@@ -26,7 +26,7 @@ def dodge():
     global detection_time, flag
     time_since_detect = time.perf_counter() - detection_time
     if time_since_detect <= 0.25:
-        mv.move_back()
+        mv.stop()
     elif time_since_detect <= 1.4:
         mv.move_back()
         mv.turn_wheels(-55)
@@ -48,17 +48,23 @@ def dodge():
 
 
 def process_picar(number, q):
-    global flag
+    global detection_time, flag
     last_range_value = 0
 
     while True:
-        mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
-        mv.accelerate()
-        mv.move_with_spin()
-        if q.empty() is False:
-            last_range_value = q.get()
+        if not flag:
+            mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
+            mv.accelerate()
+            mv.move_with_spin()
 
-        print("last range value", last_range_value)
+            if q.empty() is False:
+                last_range_value = q.get()
+            print("last range value", last_range_value)
+
+            if last_range_value <= 3:
+                flag = True
+        else:
+            dodge()
 
 
 def process_sensor_distance(number, q):
