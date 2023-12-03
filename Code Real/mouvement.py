@@ -162,7 +162,7 @@ def move_back():
 
 def set_current_speed():
     new_speed = int(currentspeed)
-    #print(new_speed)
+    print(new_speed)
     bw.speed = new_speed
 
 
