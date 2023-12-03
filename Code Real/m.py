@@ -44,9 +44,6 @@ def dodge():
         line_follower.previous_sensor_state = [False, False, False, False, False]
         line_follower.previous_sensor_result = [False, False, False, False, False]
         flag = False
-        timeSinceDetect = 0.0
-        timeSinceDetect += timeSinceDetect - time.perf_counter()
-
 
 def process_picar(number, q):
     global detection_time, flag
@@ -65,6 +62,7 @@ def process_picar(number, q):
                 print("last range value", last_range_value)
 
                 if last_range_value <= 3:
+                    detection_time = time.perf_counter()
                     stop()
                     flag = True
             else:
