@@ -49,7 +49,7 @@ def dodge():
 
 def process_picar(number, q):
     global detection_time, flag
-    last_range_value = 0
+    last_range_value = 50
 
     while True:
         if not flag:
