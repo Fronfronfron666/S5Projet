@@ -5,7 +5,6 @@ line_follower = Line_Follower.Line_Follower()
 threshold = 100
 previous_sensor_result = [False, False, False, False, False]
 previous_sensor_state = [False, False, False, False, False]
-current_wheel_angle = 0
 lost_counter = 0
 is_lost = False
 is_stopped = False
@@ -29,15 +28,6 @@ def find_line():
     elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
         turn_limit = -55
     return turn_limit
-
-
-def get_new_turn_value_under_limit(limit):
-    change_value = 1
-    if current_wheel_angle < limit - change_value:
-        return current_wheel_angle + change_value
-    elif current_wheel_angle > limit + change_value:
-        return current_wheel_angle - change_value
-    return limit
 
 
 def get_turn_value(line_sensor_results):
@@ -131,9 +121,7 @@ def get_turn_value(line_sensor_results):
         else:
             print("Comprends pas")
 
-    new_angle = get_new_turn_value_under_limit(turn_limit)
-    current_wheel_angle = new_angle
-    return new_angle
+    return turn_limit
 
 
 def get_line_follower_result():

@@ -17,12 +17,20 @@ MAX_SPEED = 80
 wheel_angle = 0
 is_moving_frontward = True
 
+def get_new_turn_value_under_limit(limit):
+    change_value = 1
+    if wheel_angle < limit - change_value:
+        return wheel_angle + change_value
+    elif wheel_angle > limit + change_value:
+        return wheel_angle - change_value
+    return limit
+
 def turn_wheels(degree):
     global wheel_angle
     wheel_angle = 90 + degree + ajustement_angle_roues
     if wheel_angle > 180:
         wheel_angle = 180
-    fw.turn(wheel_angle)
+    fw.turn(get_new_turn_value_under_limit(wheel_angle))
 
 def turnStraight():
     turn_wheels(0)
