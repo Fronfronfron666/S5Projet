@@ -50,16 +50,18 @@ def process_picar(number, q):
     last_range_value = 50
     try:
         while True:
+            if q.empty() is False:
+                value = q.get()
+                if value is not 0:
+                    last_range_value = value
+            print("last range value", last_range_value)
+
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.accelerate()
                 mv.move_with_spin()
 
-                if q.empty() is False:
-                    value = q.get()
-                    if value is not 0:
-                        last_range_value = value
-                print("last range value", last_range_value)
+
 
                 if last_range_value <= 3:
                     last_range_value = 50
