@@ -32,7 +32,7 @@ def find_line():
 
 
 def get_new_turn_value_under_limit(limit):
-    change_value = 5
+    change_value = 1
     if current_wheel_angle < limit - change_value:
         return current_wheel_angle + change_value
     elif current_wheel_angle > limit + change_value:
