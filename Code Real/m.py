@@ -26,9 +26,9 @@ def dodge():
     global detection_time, flag
     delai1 = 0.25
     delai2 = delai1 + 1
-    delai3 = delai2 + 10
+    delai3 = delai2 + 1.2
 
-    delai4 = delai3 + 10
+    delai4 = delai3 + 1.2
     delai5 = delai4 + 1
     delai6 = delai5 + 10
 
@@ -37,17 +37,21 @@ def dodge():
     print("time since detection:    ",time_since_detect)
     if time_since_detect <= delai1:
         mv.move_back()
+        line_follower.previous_sensor_state = [False, False, False, False, False]
+        line_follower.previous_sensor_result = [False, False, False, False, False]
     elif time_since_detect <= delai2:
         mv.move_back()
         mv.turn_wheels(-45)
     elif time_since_detect <= delai3:
         mv.move_frontward()
-        mv.turn_wheels(-12)
-    elif time_since_detect < delai6:
-        mv.stop()
-        line_follower.previous_sensor_state = [False, False, False, False, False]
-        line_follower.previous_sensor_result = [False, False, False, False, False]
-        #flag = False
+        mv.turn_wheels(0)
+    elif not line_follower.get_line_follower_result()[2]:
+        mv.move_frontward()
+        mv.turn_wheels(18)
+    else:
+        flag = False
+
+
 
 def process_picar(number, q):
     global detection_time, flag
@@ -65,8 +69,6 @@ def process_picar(number, q):
                 mv.accelerate()
                 mv.move_with_spin()
 
-
-
                 if last_range_value <= 3:
                     last_range_value = 50
                     detection_time = time.perf_counter()
@@ -76,6 +78,7 @@ def process_picar(number, q):
             else:
                 print("Dodging")
                 dodge()
+
     except KeyboardInterrupt:
         stop()
 
