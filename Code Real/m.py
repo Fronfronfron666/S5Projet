@@ -64,6 +64,7 @@ def process_picar(number, q):
             if last_range_value <= 3:
                 flag = True
         else:
+            print("Dodging")
             dodge()
 
 
