@@ -29,8 +29,8 @@ def dodge():
     delai3 = delai2 + 1.2
 
     delai4 = delai3 + 0.7
-    delai5 = delai4 + 1
-    delai6 = delai5 + 10
+    delai5 = delai4 + 0.7
+    delai6 = delai5 + 0.7
 
 
     time_since_detect = time.perf_counter() - detection_time
@@ -46,6 +46,12 @@ def dodge():
         mv.move_frontward()
         mv.turn_wheels(0)
     elif time_since_detect <= delai4:
+        mv.move_frontward()
+        mv.turn_wheels(-45)
+    elif time_since_detect <= delai5:
+        mv.move_frontward()
+        mv.turn_wheels(0)
+    elif time_since_detect <= delai6:
         mv.move_frontward()
         mv.turn_wheels(-45)
 
