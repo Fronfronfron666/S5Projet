@@ -18,14 +18,20 @@ def stop():
 
 counter = 0
 
+
+
 def process_picar(q):
-        while True:
-            mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
-            #mv.turn_wheels(50)
-            mv.accelerate()
-            #mv.move()
-            mv.move_with_spin()
-            time.sleep(0.041)
+    last_range_value = 0
+    while True:
+        mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
+        #mv.turn_wheels(50)
+        mv.accelerate()
+        #mv.move()
+        mv.move_with_spin()
+        time.sleep(0.041)
+        if q.empty() is not False:
+            last_range_value = q.get()
+        print("last range value", last_range_value)
 
 
 def process_sensor_distance(q):
