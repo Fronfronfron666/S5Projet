@@ -41,7 +41,7 @@ def process_sensor_distance(number, q):
 
 
 if __name__ == '__main__':
-    q = multiprocessing.Manager.Queue()
+    q = multiprocessing.Manager().Queue()
     number = 0
     try:
         p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
