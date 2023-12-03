@@ -162,7 +162,8 @@ def move_back():
 
 def set_current_speed():
     new_speed = int(currentspeed)
-    print(new_speed)
+    print("speed:       ",new_speed)
+    print("Wheel Angle: ", wheel_angle)
     bw.speed = new_speed
 
 
