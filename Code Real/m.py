@@ -19,7 +19,6 @@ def stop():
 counter = 0
 
 
-
 def process_picar(number, q):
     last_range_value = 0
     while True:
@@ -29,20 +28,20 @@ def process_picar(number, q):
         #mv.move()
         mv.move_with_spin()
         time.sleep(0.041)
-        #if q.empty() is not False:
-            #last_range_value = q.get()
-        #print("last range value", last_range_value)
+        if q.empty() is not False:
+            last_range_value = q.get()
+        print("last range value", last_range_value)
 
 
 def process_sensor_distance(number, q):
     while True:
         range_value = us.get_ultrasonic_avoidance()
         print("got range:   ", range_value)
-        #q.put(range_value)
+        q.put(range_value)
 
 
 if __name__ == '__main__':
-    q = 0# multiprocessing.Queue()
+    q = multiprocessing.Queue()
     number = 0
     try:
         p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
