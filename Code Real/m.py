@@ -20,7 +20,7 @@ counter = 0
 
 
 
-def process_picar(q):
+def process_picar(number, q):
     last_range_value = 0
     while True:
         mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
@@ -29,23 +29,24 @@ def process_picar(q):
         #mv.move()
         mv.move_with_spin()
         time.sleep(0.041)
-        if q.empty() is not False:
-            last_range_value = q.get()
-        print("last range value", last_range_value)
+        #if q.empty() is not False:
+            #last_range_value = q.get()
+        #print("last range value", last_range_value)
 
 
-def process_sensor_distance(q):
+def process_sensor_distance(number, q):
     while True:
         range_value = us.get_ultrasonic_avoidance()
         print("got range:   ", range_value)
-        q.put(range_value)
+        #q.put(range_value)
 
 
 if __name__ == '__main__':
     q = multiprocessing.Queue()
+    number = 0
     try:
-        p_picar = multiprocessing.Process(target=process_picar, args=(q))
-        p_distance = multiprocessing.Process(target=process_sensor_distance, args=(q))
+        p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
+        p_distance = multiprocessing.Process(target=process_sensor_distance, args=(number, q))
         p_picar.start()
         p_distance.start()
         p_picar.join()
