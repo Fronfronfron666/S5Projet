@@ -161,7 +161,7 @@ def move_back():
         set_current_speed()
 
 def set_current_speed():
-    new_speed = int(currentspeed)
+    new_speed = int(currentspeed * get_turning_factor_on_speed_value())
     print("speed:       ",new_speed)
     print("Wheel Angle: ", wheel_angle)
     bw.speed = new_speed
@@ -182,4 +182,4 @@ def move_frontward():
 
 def get_turning_factor_on_speed_value():
     print(wheel_angle)
-    return 1 - ((np.abs(wheel_angle/55)/3))
+    return 1 - ((np.abs((wheel_angle - 90 - ajustement_angle_roues)/55)/3))
