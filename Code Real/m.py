@@ -43,6 +43,6 @@ if __name__ == '__main__':
         p_picar.start()
         p_distance.start()
         p_picar.join()
-        p_distance.join
+        p_distance.join()
     except KeyboardInterrupt:
         stop()
