@@ -27,7 +27,7 @@ def dodge():
     time_since_detect = time.perf_counter() - detection_time
     print("time since detection:    ",time_since_detect)
     if time_since_detect <= 0.25:
-        mv.stop()
+        mv.move_back()
     elif time_since_detect <= 1.4:
         mv.move_back()
         mv.turn_wheels(-55)
@@ -77,7 +77,6 @@ def process_sensor_distance(number, q):
     try:
         while True:
             range_value = us.get_ultrasonic_avoidance()
-            #print("got range:   ", range_value)
             q.put(range_value)
     except KeyboardInterrupt:
         stop()
