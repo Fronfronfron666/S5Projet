@@ -141,12 +141,12 @@ def move_back():
     global currentspeed, is_moving_frontward
     #print("is moving_frontward  :", is_moving_frontward)
     if is_moving_frontward:
-        print("ici")
+        #print("ici")
         stop()
         if currentspeed ==0:
             is_moving_frontward = False
     else:
-        print("no")
+        #print("no")
         currentspeed += 5
         check_max_and_min_speed()
         bw.forward()
@@ -154,7 +154,7 @@ def move_back():
 
 def set_current_speed():
     new_speed = int(currentspeed * get_turning_factor_on_speed_value())
-    print(new_speed)
+    #print(new_speed)
     bw.speed = new_speed
 
 
