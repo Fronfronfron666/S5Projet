@@ -44,24 +44,24 @@ if __name__ == '__main__':
                     print("BBB")
                     mv.move_back()
                     mv.turn_wheels(-55)
-                elif timeSinceDetect <= 3.6:
+                elif timeSinceDetect <= 4:
                     print("CCC")
                     mv.move_frontward()
                     mv.turn_wheels(0)
-                elif timeSinceDetect <= 4.3:
+                elif timeSinceDetect <= 4.7:
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
                 #elif timeSinceDetect <= 4.8:
-                    #mv.move_frontward()
-                    #mv.turn_wheels(0)
-                elif timeSinceDetect <= 5.2:
+                    mv.move_frontward()
+                    mv.turn_wheels(0)
+                elif timeSinceDetect <= 5.5:
                     line_follower.previous_sensor_state = [False, False, False, False, False]
                     line_follower.previous_sensor_result = [False, False, False, False, False]
                     print("DDD")
                     mv.move_frontward()
                     mv.turn_wheels(-50)
-                elif timeSinceDetect > 5.2:
+                elif timeSinceDetect > 5.5:
                     print("EEE")
                     flag = False
                     timeSinceDetect = 0.0

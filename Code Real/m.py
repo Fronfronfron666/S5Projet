@@ -12,24 +12,56 @@ picar.setup()
 fw = front_wheels.Front_Wheels(db='config')
 bw = back_wheels.Back_Wheels (db=' config')
 
+flag = False
+detection_time = time.perf_counter()
+counter = 0
+
+
 def stop():
     bw.stop()
     fw.turn_straight()
 
-counter = 0
+
+def dodge():
+    global detection_time, flag
+    time_since_detect = time.perf_counter() - detection_time
+    if time_since_detect <= 0.25:
+        mv.move_back()
+    elif time_since_detect <= 1.4:
+        mv.move_back()
+        mv.turn_wheels(-55)
+    elif time_since_detect <= 3.6:
+        mv.move_frontward()
+        mv.turn_wheels(0)
+    elif time_since_detect <= 4.3:
+        mv.move_frontward()
+        mv.turn_wheels(-50)
+    elif time_since_detect <= 5.2:
+        mv.move_frontward()
+        mv.turn_wheels(-50)
+    elif time_since_detect > 5.2:
+        line_follower.previous_sensor_state = [False, False, False, False, False]
+        line_follower.previous_sensor_result = [False, False, False, False, False]
+        flag = False
+        timeSinceDetect = 0.0
+        timeSinceDetect += timeSinceDetect - time.perf_counter()
 
 
 def process_picar(number, q):
+    global flag
     last_range_value = 0
+
     while True:
+
         mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
         #mv.turn_wheels(50)
         mv.accelerate()
         #mv.move()
         mv.move_with_spin()
-        time.sleep(0.041)
+        #time.sleep(0.041)
         if q.empty() is False:
             last_range_value = q.get()
+
         print("last range value", last_range_value)
 
 
