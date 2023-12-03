@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import numpy as np
 from picar import front_wheels
 from picar import back_wheels
 import time
@@ -35,12 +36,12 @@ def checkCallibration():
 def spin_left():
     bw.left_wheel.stop()
     bw.right_wheel.backward()
-    bw.speed = currentspeed
+    set_current_speed()
 
 def spin_right():
     bw.left_wheel.backward()
     bw.right_wheel.stop()
-    bw.speed = currentspeed
+    set_current_speed()
 
 def check_max_and_min_speed():
     global currentspeed, MAX_SPEED
@@ -49,28 +50,6 @@ def check_max_and_min_speed():
     elif currentspeed < 0:
         currentspeed = 0
 
-def is_turning():
-    turning = False
-    if lf.current_wheel_angle != 0:
-        turning = True
-    return turning
-
-def avancer_test():
-    acceleration = 5
-
-
-def get_accceleration():
-    acceleration = 5
-    wheel_angle = lf.current_wheel_angle
-    if wheel_angle != 0:
-        if wheel_angle <= -10 or wheel_angle >= 10:
-            if wheel_angle <= -20 or wheel_angle >= 20:
-                acceleration = 2
-            else:
-                acceleration = 3
-        else:
-            acceleration = 4
-    return acceleration
 
 def accelerate():
     global currentspeed
@@ -99,7 +78,7 @@ def move():
             else:
                 is_moving_frontward = True
                 bw.backward()
-                bw.speed = currentspeed
+                set_current_speed()
     else:
         stop()
 
@@ -125,7 +104,7 @@ def move_with_spin():
                         spin_right()
                 else:
                     bw.backward()
-                    bw.speed = currentspeed
+                    set_current_speed()
     else:
         stop()
 
@@ -134,7 +113,7 @@ def move_back_track_4():
     if not lf.is_stopped:
         is_moving_frontward = False
         bw.forward()
-        bw.speed = currentspeed
+        set_current_speed()
 
 def startForward(targetSpeed):
     for i in range(targetSpeed):
@@ -155,7 +134,7 @@ def stop():
     if currentspeed == 0:
         bw.stop()
     else:
-        bw.speed = currentspeed
+        set_current_speed()
 
 
 def move_back():
@@ -171,7 +150,10 @@ def move_back():
         currentspeed += 5
         check_max_and_min_speed()
         bw.forward()
-        bw.speed = currentspeed
+        set_current_speed()
+
+def set_current_speed():
+    bw.speed = currentspeed * get_turning_factor_on_speed_value()
 
 
 def move_frontward():
@@ -184,4 +166,8 @@ def move_frontward():
     else:
         bw.backward()
         accelerate()
-        bw.speed = currentspeed
+        set_current_speed()
+
+
+def get_turning_factor_on_speed_value():
+    return 1 - ((np.abs(lf.current_wheel_angle/55)/3))
