@@ -24,23 +24,31 @@ def stop():
 
 def dodge():
     global detection_time, flag
+    delai1 = 0.25
+    delai2 = delai1 + 1
+    delai3 = delai2 + 1
+    delai4 = delai3 + 1
+    delai5 = delai4 + 1
+    delai6 = delai5 + 1
+
+
     time_since_detect = time.perf_counter() - detection_time
     print("time since detection:    ",time_since_detect)
-    if time_since_detect <= 0.25:
+    if time_since_detect <= delai1:
         mv.move_back()
-    elif time_since_detect <= 1.4:
+    elif time_since_detect <= delai2:
         mv.move_back()
         mv.turn_wheels(-55)
-    elif time_since_detect <= 3.6:
+    elif time_since_detect <= delai3:
         mv.move_frontward()
         mv.turn_wheels(0)
-    elif time_since_detect <= 4.3:
+    elif time_since_detect <= delai4:
         mv.move_frontward()
         mv.turn_wheels(-50)
-    elif time_since_detect <= 5.2:
+    elif time_since_detect <= delai5:
         mv.move_frontward()
         mv.turn_wheels(-50)
-    elif time_since_detect > 5.2:
+    elif time_since_detect > delai6:
         line_follower.previous_sensor_state = [False, False, False, False, False]
         line_follower.previous_sensor_result = [False, False, False, False, False]
         flag = False
