@@ -28,9 +28,9 @@ def dodge():
     delai2 = delai1 + 1
 
     delai3 = delai2 + 1
-    delai4 = delai3 + 1
+    delai4 = delai3 + 10
     delai5 = delai4 + 1
-    delai6 = delai5 + 1
+    delai6 = delai5 + 10
 
 
     time_since_detect = time.perf_counter() - detection_time
