@@ -59,7 +59,9 @@ def process_picar(number, q):
                 mv.move_with_spin()
 
                 if q.empty() is False:
-                    last_range_value = q.get()
+                    value = q.get()
+                    if value is not 0:
+                        last_range_value = value
                 print("last range value", last_range_value)
 
                 if last_range_value <= 3:
