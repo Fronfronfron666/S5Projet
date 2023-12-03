@@ -26,8 +26,8 @@ def dodge():
     global detection_time, flag
     delai1 = 0.25
     delai2 = delai1 + 1
+    delai3 = delai2 + 10
 
-    delai3 = delai2 + 1
     delai4 = delai3 + 10
     delai5 = delai4 + 1
     delai6 = delai5 + 10
