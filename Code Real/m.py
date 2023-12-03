@@ -45,7 +45,7 @@ def dodge():
         mv.stop()
         line_follower.previous_sensor_state = [False, False, False, False, False]
         line_follower.previous_sensor_result = [False, False, False, False, False]
-        flag = False
+        #flag = False
 
 def process_picar(number, q):
     global detection_time, flag
