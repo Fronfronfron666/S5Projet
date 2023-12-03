@@ -39,7 +39,7 @@ def get_new_turn_value_under_limit(limit):
 
 
 
-def get_turn_limit(line_sensor_results):
+def get_turn_value(line_sensor_results):
     global is_spinning, previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle, lost_counter, is_lost, is_stopped
     turn_limit = 0
     previous_sensor_result, previous_sensor_state = change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state)

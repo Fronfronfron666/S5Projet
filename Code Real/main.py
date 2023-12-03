@@ -41,7 +41,7 @@ if __name__ == '__main__':
         while True:
             print("counter: ", counter)
 
-            mv.turn_wheels(line_follower.get_new_turn_value_under_limit(line_follower.get_line_follower_result()))
+            mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
             #mv.turn_wheels(50)
             mv.accelerate()
             #mv.move()
