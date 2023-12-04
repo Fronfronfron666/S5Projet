@@ -125,7 +125,7 @@ def move_back_track_4():
 
 def stop():
     global currentspeed
-    currentspeed -= 1
+    currentspeed -= 5
     check_max_and_min_speed()
     if currentspeed == 0:
         bw.stop()
