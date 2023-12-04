@@ -19,10 +19,10 @@ is_moving_frontward = True
 
 def get_new_turn_value_under_limit(limit):
     change_value = 1
-    if wheel_angle - 90 - ajustement_angle_roues < limit - change_value:
-        return wheel_angle + change_value
-    elif wheel_angle - 90 - ajustement_angle_roues > limit + change_value:
-        return wheel_angle - change_value
+    if wheel_angle - 90 - ajustement_angle_roues <= limit - change_value:
+        return wheel_angle - 90 - ajustement_angle_roues + change_value
+    elif wheel_angle - 90 - ajustement_angle_roues >= limit + change_value:
+        return wheel_angle - 90 - ajustement_angle_roues - change_value
     return limit
 
 def turn_wheels(degree):
