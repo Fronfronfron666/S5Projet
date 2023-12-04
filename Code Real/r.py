@@ -21,7 +21,9 @@ if __name__ == '__main__':
             mv.turn_wheels(0)
             #mv.turn_wheels(50)
             mv.accelerate()
-            mv.move_back()
+            bw.forward()
+            mv.set_current_speed()
+            mv.check_max_and_min_speed()
             time.sleep(0.041)
 
     except KeyboardInterrupt:
