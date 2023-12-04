@@ -28,7 +28,7 @@ delai3 = delai2 + 1 # 1.4 at 80, 1.2 at 100, 1.6 at 60, (time for MAX_SPEED valu
 delai4 = delai3 + 2
 delai5 = delai4 + 1.1
 delai6 = delai5 + 0
-delai7 = delai6 + 1.8
+delai7 = delai6 + 2
 
 def dodge():
     global detection_time, flag
