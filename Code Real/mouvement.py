@@ -144,10 +144,11 @@ def move_back():
             is_moving_frontward = False
     else:
         print("no")
+        bw.forward()
         currentspeed += 1
         set_current_speed()
         check_max_and_min_speed()
-        bw.forward()
+
 
 
 def set_current_speed():
