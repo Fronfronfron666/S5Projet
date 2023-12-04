@@ -78,10 +78,10 @@ def process_picar(number, q):
                 mv.accelerate()
                 mv.move_with_spin()
 
-                if last_range_value <= 3:
+                if last_range_value <= 4:
                     last_range_value = 50
                     detection_time = time.perf_counter()
-                    stop()
+                    mv.stop()
                     flag = True
 
             else:

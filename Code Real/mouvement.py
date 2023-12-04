@@ -138,7 +138,7 @@ def testFW():
 
 def stop():
     global currentspeed
-    currentspeed -= 20
+    currentspeed -= 5
     check_max_and_min_speed()
     if currentspeed == 0:
         bw.stop()
