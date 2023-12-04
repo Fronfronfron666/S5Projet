@@ -58,6 +58,9 @@ def dodge():
         line_follower.previous_sensor_result = [False, False, False, False, False]
     elif not line_follower.get_line_follower_result()[4]:
         mv.move_frontward()
+        mv.turn_wheels(35)
+    elif not line_follower.get_line_follower_result()[0]:
+        mv.move_frontward()
         mv.turn_wheels(-35)
     else:
         flag = False
