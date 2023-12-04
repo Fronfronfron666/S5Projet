@@ -127,10 +127,10 @@ def stop():
     global currentspeed
     currentspeed -= 5
     check_max_and_min_speed()
+    set_current_speed()
     if currentspeed == 0:
         bw.stop()
-    else:
-        set_current_speed()
+
 
 
 def move_back():
