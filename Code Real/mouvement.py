@@ -154,7 +154,7 @@ def move_back():
 
 
 def set_current_speed():
-    new_speed = currentspeed #int(currentspeed * get_turning_factor_on_speed_value())
+    new_speed = int(currentspeed * get_turning_factor_on_speed_value())
     print("speed:       ",new_speed)
     print("Wheel Angle: ", wheel_angle)
     bw.speed = new_speed
