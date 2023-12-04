@@ -13,12 +13,12 @@ bw = back_wheels.Back_Wheels (db='config')
 
 ajustement_angle_roues = 10
 currentspeed = 0
-MAX_SPEED = 80
+MAX_SPEED = 100
 wheel_angle = 0
 is_moving_frontward = True
 
 def get_new_turn_value_under_limit(limit):
-    change_value = 25 * (1 - (0.9 * currentspeed / MAX_SPEED))
+    change_value = 20 * (1 - (0.9 * currentspeed / MAX_SPEED))
     print("bw.speed:    ", currentspeed)
     if wheel_angle - 90 - ajustement_angle_roues <= limit - change_value:
         return wheel_angle - 90 - ajustement_angle_roues + change_value
