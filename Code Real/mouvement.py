@@ -21,7 +21,7 @@ def get_new_turn_value_under_limit(limit):
     change_value = 1
     if wheel_angle - 90 - ajustement_angle_roues < limit - change_value:
         return wheel_angle + change_value
-    elif wheel_angle  - 90 - ajustement_angle_roues > limit + change_value:
+    elif wheel_angle - 90 - ajustement_angle_roues > limit + change_value:
         return wheel_angle - change_value
     return limit
 
