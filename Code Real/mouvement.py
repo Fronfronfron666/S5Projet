@@ -62,12 +62,12 @@ def check_max_and_min_speed():
 
 def accelerate():
     global currentspeed
-    currentspeed += 0.5
+    currentspeed += 1
     check_max_and_min_speed()
 
 def decelerate():
     global currentspeed
-    currentspeed -= 0.5
+    currentspeed -= 1
     check_max_and_min_speed()
 
 def move():
@@ -168,8 +168,6 @@ def move_frontward():
 
 def set_current_speed():
     new_speed = int(currentspeed * get_turning_factor_on_speed_value())
-    print("speed:       ",new_speed)
-    print("Wheel Angle: ", wheel_angle)
     bw.speed = new_speed
 
 
@@ -186,5 +184,4 @@ def move_frontward():
 
 
 def get_turning_factor_on_speed_value():
-    print(wheel_angle)
-    return 1 - (np.abs((wheel_angle - 90 - ajustement_angle_roues)/55)/3)
+    return 1 - (np.abs((wheel_angle - 90 - ajustement_angle_roues)/55)/4)
