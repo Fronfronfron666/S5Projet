@@ -32,6 +32,8 @@ def dodge():
     delai5 = delai4 + 0.2
     delai6 = delai5 + 0.7
 
+    line_follower.previous_sensor_state = [False, False, False, False, False]
+    line_follower.previous_sensor_result = [False, False, False, False, False]
 
     time_since_detect = time.perf_counter() - detection_time
     print("time since detection:    ",time_since_detect)
@@ -53,13 +55,7 @@ def dodge():
     elif time_since_detect <= delai6:
         mv.move_frontward()
         mv.turn_wheels(-45)
-
-        line_follower.previous_sensor_state = [False, False, False, False, False]
-        line_follower.previous_sensor_result = [False, False, False, False, False]
-    elif not line_follower.get_line_follower_result()[4]:
-        mv.move_frontward()
-        mv.turn_wheels(35)
-    elif not line_follower.get_line_follower_result()[0]:
+    elif not line_follower.get_line_follower_result()[2]:
         mv.move_frontward()
         mv.turn_wheels(-35)
     else:
