@@ -152,6 +152,19 @@ def move_back():
         check_max_and_min_speed()
 
 
+def move_frontward():
+    global is_moving_frontward, currentspeed
+    if not is_moving_frontward:
+        stop()
+        if currentspeed == 0:
+            is_moving_frontward = True
+    else:
+        bw.backward()
+        accelerate()
+        currentspeed += 1
+        set_current_speed()
+        check_max_and_min_speed()
+
 
 def set_current_speed():
     new_speed = int(currentspeed * get_turning_factor_on_speed_value())
