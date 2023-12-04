@@ -23,11 +23,12 @@ def stop():
 
 delai1 = 1
 delai2 = delai1 + 3
-delai3 = delai2 + 5 # 1.4 at 80, 1.2 at 100, 1.6 at 60, (time for MAX_SPEED value)
+delai3 = delai2 + 3 # 1.4 at 80, 1.2 at 100, 1.6 at 60, (time for MAX_SPEED value)
 
-delai4 = delai3 + 6
-delai5 = delai4 + 0.5
-delai6 = delai5 + 2
+delai4 = delai3 + 4
+delai5 = delai4 + 2
+delai6 = delai5 + 0.5
+delai7 = delai6 + 2
 
 def dodge():
     global detection_time, flag
@@ -44,15 +45,17 @@ def dodge():
         mv.move_back()
         mv.turn_wheels(-55)
     elif time_since_detect <= delai3:
-        mv.move_frontward()
-        mv.turn_wheels(0)
+        mv.stop()
     elif time_since_detect <= delai4:
         mv.move_frontward()
-        mv.turn_wheels(-55)
+        mv.turn_wheels(0)
     elif time_since_detect <= delai5:
         mv.move_frontward()
-        mv.turn_wheels(0)
+        mv.turn_wheels(-55)
     elif time_since_detect <= delai6:
+        mv.move_frontward()
+        mv.turn_wheels(0)
+    elif time_since_detect <= delai7:
         mv.move_frontward()
         mv.turn_wheels(-45)
     elif not line_follower.get_line_follower_result()[2]:
