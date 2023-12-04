@@ -138,7 +138,7 @@ def testFW():
 
 def stop():
     global currentspeed
-    currentspeed -= 5
+    currentspeed -= 1
     check_max_and_min_speed()
     if currentspeed == 0:
         bw.stop()
@@ -156,10 +156,11 @@ def move_back():
             is_moving_frontward = False
     else:
         #print("no")
-        currentspeed += 5
+        currentspeed += 1
+        set_current_speed()
         check_max_and_min_speed()
         bw.forward()
-        set_current_speed()
+
 
 def set_current_speed():
     new_speed = int(currentspeed * get_turning_factor_on_speed_value())
@@ -170,7 +171,6 @@ def set_current_speed():
 
 def move_frontward():
     global is_moving_frontward, currentspeed
-    #print("is_lost:  ",lf.is_lost)
     if not is_moving_frontward:
         stop()
         if currentspeed == 0:
