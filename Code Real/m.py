@@ -75,7 +75,6 @@ def process_picar(number, q):
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
-                mv.accelerate()
                 mv.move_with_spin()
 
                 if last_range_value <= 4:

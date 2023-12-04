@@ -86,6 +86,7 @@ def move():
             else:
                 is_moving_frontward = True
                 bw.backward()
+                accelerate()
                 set_current_speed()
     else:
         stop()
@@ -110,6 +111,7 @@ def move_with_spin():
                     else:
                         spin_right()
                 else:
+                    accelerate()
                     bw.backward()
                     set_current_speed()
     else:
