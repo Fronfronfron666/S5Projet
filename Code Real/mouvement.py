@@ -102,7 +102,7 @@ def move_with_spin():
             move_back()
         else:
             if currentspeed != 0 and is_moving_frontward == False:
-                stop()
+                stop_boucle()
                 if currentspeed == 0:
                     is_moving_frontward = True
             else:
@@ -136,7 +136,16 @@ def stop():
     #if currentspeed == 0:
         #bw.stop()
 
+def stop_boucle():
+    global currentspeed
 
+    while currentspeed != 0:
+        print("current speed: ", currentspeed)
+        currentspeed -= 0.5
+        check_max_and_min_speed()
+        set_current_speed()
+    # if currentspeed == 0:
+    # bw.stop()
 
 def move_back():
     global currentspeed, is_moving_frontward
