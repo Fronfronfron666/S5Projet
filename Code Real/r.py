@@ -19,9 +19,8 @@ if __name__ == '__main__':
     try:
         while True:
             mv.turn_wheels(0)
-            #mv.turn_wheels(50)
-            mv.accelerate()
             bw.forward()
+            mv.accelerate()
             mv.set_current_speed()
             mv.check_max_and_min_speed()
             time.sleep(0.041)
