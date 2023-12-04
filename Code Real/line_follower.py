@@ -42,7 +42,7 @@ def get_turn_value(line_sensor_results):
     if line_sensor_results == [False, False, False, False, False]:
 
         if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
-            if lost_counter < 250:
+            if lost_counter < 320:
                 turn_limit = -55
                 #is_spinning = True
             else:
@@ -53,7 +53,7 @@ def get_turn_value(line_sensor_results):
                     turn_limit = find_line()
 
         elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
-            if lost_counter < 250:
+            if lost_counter < 320:
                 turn_limit = 55
                 #is_spinning = True
             else:
