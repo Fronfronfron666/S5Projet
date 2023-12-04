@@ -92,8 +92,10 @@ def move():
         stop()
 
 def move_with_spin():
+
     global is_moving_frontward, currentspeed
-    #print("is_lost:  ",lf.is_lost)
+    print("is_lost:  ",lf.is_lost)
+    print("is_moving Frontward:     ", is_moving_frontward)
     if not lf.is_stopped:
         if lf.is_lost:
             print("move back")
