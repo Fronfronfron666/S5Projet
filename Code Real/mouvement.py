@@ -126,7 +126,7 @@ def move_back_track_4():
 def stop():
     global currentspeed
     print("current speed: ", currentspeed)
-    currentspeed -= 5
+    currentspeed -= 10
     check_max_and_min_speed()
     set_current_speed()
     #if currentspeed == 0:
