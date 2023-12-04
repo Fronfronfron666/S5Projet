@@ -30,7 +30,7 @@ def turn_wheels(degree):
     wheel_angle = 90 + degree + ajustement_angle_roues
     if wheel_angle > 180:
         wheel_angle = 180
-    fw.turn(get_new_turn_value_under_limit(wheel_angle))
+    fw.turn(wheel_angle)
 
 def turnStraight():
     turn_wheels(0)
