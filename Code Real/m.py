@@ -40,13 +40,13 @@ def dodge():
 
     elif time_since_detect <= delai2:
         mv.move_back()
-        mv.turn_wheels(-45)
+        mv.turn_wheels(-55)
     elif time_since_detect <= delai3:
         mv.move_frontward()
         mv.turn_wheels(0)
     elif time_since_detect <= delai4:
         mv.move_frontward()
-        mv.turn_wheels(-45)
+        mv.turn_wheels(-55)
     #elif time_since_detect <= delai5:
         #mv.move_frontward()
         #mv.turn_wheels(0)
