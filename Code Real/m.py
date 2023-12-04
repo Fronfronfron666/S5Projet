@@ -30,7 +30,7 @@ delai3 = delai2 + 1
 delai4 = delai3 + 1.8
 delai5 = delai4 + 1.1
 delai6 = delai5 + 0
-delai7 = delai6 + 2
+delai7 = delai6 + 1.7
 
 def dodge():
     global detection_time, flag
