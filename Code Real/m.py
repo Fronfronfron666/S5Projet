@@ -21,13 +21,13 @@ def stop():
     bw.stop()
     fw.turn_straight()
 
-delai1 = 0.25
-delai2 = delai1 + 1.2
-delai3 = delai2 + 1.6 # 1.4 at 80, 1.2 at 100, 1.6 at 60, (time for MAX_SPEED value)
+delai1 = 1
+delai2 = delai1 + 2
+delai3 = delai2 + 2 # 1.4 at 80, 1.2 at 100, 1.6 at 60, (time for MAX_SPEED value)
 
-delai4 = delai3 + 0.7
-delai5 = delai4 + 0.2
-delai6 = delai5 + 0.7
+delai4 = delai3 + 2
+delai5 = delai4 + 0.5
+delai6 = delai5 + 2
 
 def dodge():
     global detection_time, flag
