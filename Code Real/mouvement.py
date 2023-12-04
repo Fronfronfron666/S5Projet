@@ -152,7 +152,7 @@ def move_back():
     if is_moving_frontward:
         #print("ici")
         stop()
-        if currentspeed ==0:
+        if currentspeed == 0:
             is_moving_frontward = False
     else:
         #print("no")
