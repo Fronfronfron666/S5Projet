@@ -62,7 +62,7 @@ def check_max_and_min_speed():
 
 def accelerate():
     global currentspeed
-    currentspeed += 5
+    currentspeed += 3
     check_max_and_min_speed()
 
 def decelerate():
@@ -138,7 +138,7 @@ def testFW():
 
 def stop():
     global currentspeed
-    currentspeed -= 5
+    currentspeed -= 3
     check_max_and_min_speed()
     if currentspeed == 0:
         bw.stop()
