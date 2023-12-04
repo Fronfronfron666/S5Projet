@@ -18,7 +18,7 @@ wheel_angle = 0
 is_moving_frontward = True
 
 def get_new_turn_value_under_limit(limit):
-    change_value = int(10 * (1 - (0.9 * currentspeed / MAX_SPEED)))
+    change_value = 20 * (1 - (0.9 * currentspeed / MAX_SPEED))
     if wheel_angle - 90 - ajustement_angle_roues <= limit - change_value:
         return wheel_angle - 90 - ajustement_angle_roues + change_value
     elif wheel_angle - 90 - ajustement_angle_roues >= limit + change_value:
@@ -174,4 +174,4 @@ def move_frontward():
 
 def get_turning_factor_on_speed_value():
     print(wheel_angle)
-    return 1 - (0.8 * (np.abs((wheel_angle - 90 - ajustement_angle_roues)/55)/3))
+    return 1 - (np.abs((wheel_angle - 90 - ajustement_angle_roues)/55)/3)
