@@ -72,7 +72,7 @@ def dodge():
         mv.turn_wheels(-45)
         print("7")
 
-    elif not line_follower.get_line_follower_result()[4]:
+    elif not line_follower.get_line_follower_result()[0]:
         print("8")
         mv.move_frontward()
         mv.turn_wheels(35)
