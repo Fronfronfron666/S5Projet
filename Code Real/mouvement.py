@@ -56,7 +56,7 @@ def check_max_and_min_speed():
     global currentspeed, MAX_SPEED
     if currentspeed > MAX_SPEED:
         currentspeed = MAX_SPEED
-    elif currentspeed < 0:
+    elif currentspeed <= 0:
         currentspeed = 0
 
 
@@ -99,7 +99,6 @@ def move_with_spin():
             print("move back")
             move_back()
         else:
-
             if currentspeed != 0 and is_moving_frontward == False:
                 stop()
                 if currentspeed == 0:
@@ -124,17 +123,6 @@ def move_back_track_4():
         bw.forward()
         set_current_speed()
 
-def startForward(targetSpeed):
-    for i in range(targetSpeed):
-        bw.speed = i
-        time.sleep(0.01)
-
-    time.sleep(5)
-    bw.stop()
-
-def testFW():
-    for i in range(180):
-        print(i)
 
 def stop():
     global currentspeed
@@ -150,12 +138,12 @@ def move_back():
     global currentspeed, is_moving_frontward
     #print("is moving_frontward  :", is_moving_frontward)
     if is_moving_frontward:
-        #print("ici")
+        print("ici")
         stop()
         if currentspeed == 0:
             is_moving_frontward = False
     else:
-        #print("no")
+        print("no")
         currentspeed += 1
         set_current_speed()
         check_max_and_min_speed()
