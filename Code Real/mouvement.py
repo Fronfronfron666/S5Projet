@@ -18,7 +18,8 @@ wheel_angle = 0
 is_moving_frontward = True
 
 def get_new_turn_value_under_limit(limit):
-    change_value = 1
+    change_value = 25 * (1 - (0.9 * bw.speed / MAX_SPEED))
+    print("bw.speed:    ", bw.speed)
     if wheel_angle - 90 - ajustement_angle_roues <= limit - change_value:
         return wheel_angle - 90 - ajustement_angle_roues + change_value
     elif wheel_angle - 90 - ajustement_angle_roues >= limit + change_value:
@@ -27,7 +28,7 @@ def get_new_turn_value_under_limit(limit):
 
 def turn_wheels(degree):
     global wheel_angle
-    wheel_angle = 90 + get_new_turn_value_under_limit(degree) + ajustement_angle_roues
+    wheel_angle = 90 + int(get_new_turn_value_under_limit(degree)) + ajustement_angle_roues
     if wheel_angle > 180:
         wheel_angle = 180
     fw.turn(wheel_angle)
