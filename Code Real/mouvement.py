@@ -128,8 +128,8 @@ def stop():
     currentspeed -= 2
     check_max_and_min_speed()
     set_current_speed()
-    if currentspeed == 0:
-        bw.stop()
+    #if currentspeed == 0:
+        #bw.stop()
 
 
 
