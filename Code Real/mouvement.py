@@ -61,13 +61,13 @@ def check_max_and_min_speed():
 
 def accelerate():
     global currentspeed
-    currentspeed += 3
+    currentspeed += 0.5
     check_max_and_min_speed()
 
 def decelerate():
     global currentspeed
 
-    currentspeed -= 1
+    currentspeed -= 0.5
     check_max_and_min_speed()
 
 def move():
@@ -128,7 +128,7 @@ def move_back_track_4():
 def stop():
     global currentspeed
     print("current speed: ", currentspeed)
-    currentspeed -= 2
+    currentspeed -= 0.5
     check_max_and_min_speed()
     set_current_speed()
     #if currentspeed == 0:
