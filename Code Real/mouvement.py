@@ -13,7 +13,7 @@ bw = back_wheels.Back_Wheels (db='config')
 
 ajustement_angle_roues = 10
 currentspeed = 0
-MAX_SPEED = 100
+MAX_SPEED = 80
 wheel_angle = 0
 is_moving_frontward = True
 
@@ -67,7 +67,6 @@ def accelerate():
 
 def decelerate():
     global currentspeed
-
     currentspeed -= 0.5
     check_max_and_min_speed()
 
