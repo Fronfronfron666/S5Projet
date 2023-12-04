@@ -28,7 +28,7 @@ def get_new_turn_value_under_limit(limit):
 def turn_wheels(degree):
     global wheel_angle
     wheel_angle = 90 + int(get_new_turn_value_under_limit(degree)) + ajustement_angle_roues
-    print("int wheel_angle: ", int(get_new_turn_value_under_limit(degree)))
+    print("int wheel_angle: ", get_new_turn_value_under_limit(degree))
     if wheel_angle > 180:
         wheel_angle = 180
     fw.turn(wheel_angle)
