@@ -21,6 +21,7 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
 
     return previous_result, previous_state
 
+
 lost_counter_threshhold = 370 - (mv.MAX_SPEED * 1.5)
 
 
