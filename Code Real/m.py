@@ -76,17 +76,29 @@ def dodge():
 #    else:
 #        flag = False
 
+truth_table = [0,0,0,0,0]
+
+def manage_truth_table(value):
+    global truth_table
+    truth_table[4] = truth_table[3]
+    truth_table[3] = truth_table[2]
+    truth_table[4] = truth_table[1]
+    truth_table[1] = truth_table[0]
+    truth_table[1] = value
+
 
 def process_picar(number, q):
-    global detection_time, flag
+    global detection_time, flag, truth_table
     last_range_value = 50
     try:
         while True:
             if q.empty() is False:
                 value = q.get()
-                if value is not 0:
-                    last_range_value = value
-            print("last range value", last_range_value)
+                manage_truth_table(value)
+                print("truth_table  :", truth_table)
+                #if value is not 0:
+                    #last_range_value = value
+            #print("last range value", last_range_value)
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
@@ -109,6 +121,7 @@ def process_sensor_distance(number, q):
     try:
         while True:
             range_value = us.less_than(3)
+            manage_truth_table(range_value)
             print(range_value)
             q.put(range_value)
     except KeyboardInterrupt:
