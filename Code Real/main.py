@@ -21,11 +21,9 @@ if __name__ == '__main__':
 
     try:
         while True:
-            mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
-            # mv.turn_wheels(50)
-            mv.accelerate()
-            # mv.move()
-            mv.move_with_spin()
-            time.sleep(0.041)
+            mv.turn_wheels(-45)
+            time.sleep(2)
+            mv.turn_wheels(45)
+            time.sleep(2)
     except KeyboardInterrupt:
         stop()
