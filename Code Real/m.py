@@ -108,7 +108,7 @@ def process_picar(number, q):
 def process_sensor_distance(number, q):
     try:
         while True:
-            range_value = us.less_than()
+            range_value = us.less_than(3)
             print(range_value)
             q.put(range_value)
     except KeyboardInterrupt:
