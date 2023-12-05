@@ -71,18 +71,6 @@ def dodge():
         flag = False
 
 
-#    elif time_since_detect <= delai7 and not line_follower.get_line_follower_result()[2]:
-#        mv.move_frontward()
-#        mv.turn_wheels(-45)
-#        print("7")
-#
-#    elif not line_follower.get_line_follower_result()[0]:
-#        print("8")
-#        mv.move_frontward()
-#        mv.turn_wheels(35)
-#    else:
-#        flag = False
-
 truth_table = [0,0,50,50,50]
 
 def manage_truth_table(value):
@@ -107,7 +95,7 @@ def process_picar(number, q):
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
 
-                if sum(truth_table) <= 48:
+                if sum(truth_table) <= 56:
                     detection_time = time.perf_counter()
                     mv.stop()
                     flag = True
