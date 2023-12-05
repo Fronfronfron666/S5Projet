@@ -2,14 +2,14 @@ from SunFounder_Line_Follower import Line_Follower
 import mouvement as mv
 
 line_follower = Line_Follower.Line_Follower()
-threshold = 80
+threshold = 100
 previous_sensor_result = [False, False, False, False, False]
 previous_sensor_state = [False, False, False, False, False]
 lost_counter = 0
 is_lost = False
 is_stopped = False
 is_spinning = False
-MAX_SPEED = 100
+MAX_SPEED = 80
 
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
     data = line_sensor_results
@@ -23,7 +23,7 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
     return previous_result, previous_state
 
 
-lost_counter_threshhold = 350 - (MAX_SPEED * 2)
+lost_counter_threshhold = 250 # 250 pour MAX_SPEED = 80
 
 
 def find_line():
