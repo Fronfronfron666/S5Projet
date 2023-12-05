@@ -32,7 +32,7 @@ delai7 = delai6 + 0
 delai8 = delai7 + 1
 
 def dodge():
-    global detection_time, flag
+    global detection_time, flag, last_range_value
 
     line_follower.previous_sensor_state = [False, False, False, False, False]
     line_follower.previous_sensor_result = [False, False, False, False, False]
@@ -67,6 +67,7 @@ def dodge():
         mv.move_frontward()
         mv.turn_wheels(35)
     else:
+        last_range_value = 40
         flag = False
 
 last_range_value = 40
@@ -77,7 +78,7 @@ def process_picar(number, q):
         while True:
             if q.empty() is False:
                 new_value = q.get()
-                if new_value < 1.15 * last_range_value or new_value > 0.85 * last_range_value:
+                if new_value < 1.25 * last_range_value or new_value > 0.75 * last_range_value:
                     last_range_value = new_value
 
             if not flag:
@@ -95,7 +96,6 @@ def process_picar(number, q):
                     mv.slow_down_to(30)
 
             else:
-                #print("Dodging")
                 dodge()
 
     except KeyboardInterrupt:
