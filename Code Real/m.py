@@ -89,18 +89,18 @@ def manage_truth_table(value):
 
 def process_picar(number, q):
     global detection_time, flag, truth_table
-    last_range_value = 50
     try:
         while True:
             if q.empty() is False:
-                manage_truth_table(q.get())
+                last_range_value = q.get()
+                manage_truth_table(last_range_value)
 
             print("truth_table  :", truth_table)
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
 
-                if sum(truth_table) >= 4:
+                if sum(truth_table) <= 16:
                     detection_time = time.perf_counter()
                     mv.stop()
                     flag = True
@@ -115,7 +115,7 @@ def process_picar(number, q):
 def process_sensor_distance(number, q):
     try:
         while True:
-            range_value = us.less_than(4)
+            range_value = us.get_ultrasonic_avoidance()
             q.put(range_value)
     except KeyboardInterrupt:
         stop()
