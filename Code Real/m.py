@@ -121,10 +121,6 @@ def process_sensor_distance(number, q):
     try:
         while True:
             range_value = us.less_than(4)
-            manage_truth_table(range_value)
-            print("new value    : ",range_value)
-            print("truth_table  : ", truth_table)
-
             q.put(range_value)
     except KeyboardInterrupt:
         stop()
@@ -134,9 +130,9 @@ if __name__ == '__main__':
     q = multiprocessing.Manager().Queue()
     number = 0
 
-    #p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
+    p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
     p_distance = multiprocessing.Process(target=process_sensor_distance, args=(number, q))
-    #p_picar.start()
+    p_picar.start()
     p_distance.start()
-    #p_picar.join()
+    p_picar.join()
     p_distance.join()
