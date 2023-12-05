@@ -82,11 +82,17 @@ def process_picar(number, q):
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-                if last_range_value <= 20:
-                    print("true")
+                if last_range_value <= 8:
+                    mv.stop()
                     detection_time = time.perf_counter()
                     mv.stop()
                     flag = True
+
+                elif last_range_value <= 15:
+                    mv.slow_down_to(15)
+                elif last_range_value <= 25:
+                    mv.slow_down_to(30)
+
             else:
                 #print("Dodging")
                 dodge()

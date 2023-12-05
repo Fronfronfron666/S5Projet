@@ -28,6 +28,15 @@ def get_new_turn_value_under_limit(limit):
         return wheel_angle - 90 - ajustement_angle_roues - change_value
     return limit
 
+
+def slow_down_to(target):
+    global currentspeed
+    if target <= currentspeed:
+        stop()
+    else:
+        currentspeed = 10
+
+
 def turn_wheels(degree):
     global wheel_angle
     wheel_angle = 90 + int(get_new_turn_value_under_limit(degree)) + ajustement_angle_roues
