@@ -134,9 +134,9 @@ def move_back_track_4():
 def stop():
     global currentspeed
     print("current speed: ", currentspeed)
-    if currentspeed <= 20
+    if currentspeed <= 20:
         currentspeed -= 0.3
-    elif currentspeed <= 50
+    elif currentspeed <= 50:
         currentspeed -= 0.6
     else:
         currentspeed -= 1
