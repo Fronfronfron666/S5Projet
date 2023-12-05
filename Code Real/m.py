@@ -22,34 +22,13 @@ def stop():
     fw.turn_straight()
 
 
-#if line_follower.MAX_SPEED == 80:
-#    delai1 = 1
-#    delai2 = delai1 + 1.2
-#    delai3 = delai2 + 1
-#
-#    delai4 = delai3 + 1.8
-#    delai5 = delai4 + 1.1
-#    delai6 = delai5 + 0
-#    delai7 = delai6 + 1.7
-
-#elif line_follower.MAX_SPEED == 60:
-#    delai1 = 1
-#    delai2 = delai1 + 1.2
-#    delai3 = delai2 + 1
-
-#    delai4 = delai3 + 1.8
-#    delai5 = delai4 + 1.1
-#    delai6 = delai5 + 0
-#    delai7 = delai6 + 1.7
-
-
 delai1 = 2.4
 delai2 = delai1 + 1.1
 delai3 = delai2 + 0.6
 delai4 = delai3 + 2
 delai5 = delai4 + 0.7
 delai6 = delai5 + 1.6
-delai7 = delai6 + 0.7
+delai7 = delai6 + 0.3
 delai8 = delai7 + 1.6
 
 def dodge():
