@@ -6,6 +6,7 @@ threshold = 100
 previous_sensor_result = [False, False, False, False, False]
 previous_sensor_state = [False, False, False, False, False]
 lost_counter = 0
+currentspeed = 0
 is_lost = False
 is_stopped = False
 is_spinning = False
