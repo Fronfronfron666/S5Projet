@@ -104,6 +104,7 @@ def process_sensor_distance(number, q):
     try:
         while True:
             range_value = us.get_ultrasonic_avoidance()
+            print("range :  ", range_value)
             q.put(range_value)
     except KeyboardInterrupt:
         stop()
