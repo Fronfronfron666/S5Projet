@@ -95,7 +95,12 @@ def process_picar(number, q):
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-                if last_range_value <= 15:
+                if last_range_value <= 15 and line_follower.currentspeed >= 45:
+                    mv.stop()
+                    detection_time = time.perf_counter()
+                    mv.stop()
+                    flag = True
+                elif last_range_value <= 13:
                     mv.stop()
                     detection_time = time.perf_counter()
                     mv.stop()
