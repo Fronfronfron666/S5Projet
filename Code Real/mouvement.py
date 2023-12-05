@@ -31,7 +31,7 @@ def get_new_turn_value_under_limit(limit):
 def turn_wheels(degree):
     global wheel_angle
     wheel_angle = 90 + int(get_new_turn_value_under_limit(degree)) + ajustement_angle_roues
-    print("int wheel_angle: ", get_new_turn_value_under_limit(degree))
+    #print("int wheel_angle: ", get_new_turn_value_under_limit(degree))
     if wheel_angle > 180:
         wheel_angle = 180
     fw.turn(wheel_angle)
@@ -79,7 +79,7 @@ def move():
     #print("is_lost:  ",lf.is_lost)
     if not lf.is_stopped:
         if lf.is_lost:
-            print("move back")
+            #print("move back")
             move_back()
         else:
 
@@ -98,11 +98,11 @@ def move():
 def move_with_spin():
 
     global is_moving_frontward, currentspeed
-    print("is_lost:  ",lf.is_lost)
-    print("is_moving Frontward:     ", is_moving_frontward)
+    #print("is_lost:  ",lf.is_lost)
+    #print("is_moving Frontward:     ", is_moving_frontward)
     if not lf.is_stopped:
         if lf.is_lost:
-            print("move back")
+            #print("move back")
             move_back()
         else:
             if currentspeed != 0 and is_moving_frontward == False:
@@ -133,7 +133,7 @@ def move_back_track_4():
 
 def stop():
     global currentspeed
-    print("current speed: ", currentspeed)
+    #print("current speed: ", currentspeed)
     if currentspeed <= 10:
         currentspeed = 0
     elif currentspeed <= 30:
@@ -148,7 +148,7 @@ def stop_boucle():
     global currentspeed
 
     while currentspeed != 0:
-        print("current speed: ", currentspeed)
+        #print("current speed: ", currentspeed)
         currentspeed -= 0.5
         check_max_and_min_speed()
         set_current_speed()
@@ -159,12 +159,12 @@ def move_back():
     global currentspeed, is_moving_frontward
     #print("is moving_frontward  :", is_moving_frontward)
     if is_moving_frontward:
-        print("ici")
+        #print("ici")
         stop()
         if currentspeed == 0:
             is_moving_frontward = False
     else:
-        print("no")
+        #print("no")
         bw.forward()
         accelerate()
         set_current_speed()

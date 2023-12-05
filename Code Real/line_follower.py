@@ -23,7 +23,7 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
     return previous_result, previous_state
 
 
-lost_counter_threshhold = 150
+lost_counter_threshhold = 115
 
 
 def find_line():
@@ -40,9 +40,6 @@ def get_turn_value(line_sensor_results):
     turn_limit = 0
     previous_sensor_result, previous_sensor_state = change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state)
 
-    print("line_sensor_result       :", line_sensor_results)
-    print("previous_sensor_result   :", previous_sensor_result)
-    print("previous_sensor_state    :", previous_sensor_state)
     is_spinning = False
     if not is_stopped:
         if line_sensor_results == [False, False, False, False, False]:
