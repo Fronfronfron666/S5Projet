@@ -21,6 +21,9 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
 
     return previous_result, previous_state
 
+lost_counter_threshhold = 370 - (mv.MAX_SPEED * 1.5)
+
+
 def find_line():
     turn_limit = 0
     if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
