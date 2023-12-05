@@ -66,8 +66,9 @@ def dodge():
         mv.turn_wheels(-35)
         mv.move_with_spin()
     elif time_since_detect <= delai3:
-        mv.turn_wheels(35)
+        mv.turn_wheels(45)
         mv.move_with_spin()
+
     else:
         mv.stop()
 
