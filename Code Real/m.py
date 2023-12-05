@@ -23,8 +23,8 @@ def stop():
     fw.turn_straight()
 
 
-delai1 = 2.4
-delai2 = delai1 + 2.2
+delai1 = 2.2
+delai2 = delai1 + 2.8
 delai3 = delai2 + 0.6
 delai4 = delai3 + 2.7
 delai5 = delai4 + 0
@@ -95,7 +95,7 @@ def process_picar(number, q):
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-                if last_range_value <= 13:
+                if last_range_value <= 15:
                     mv.stop()
                     detection_time = time.perf_counter()
                     mv.stop()
