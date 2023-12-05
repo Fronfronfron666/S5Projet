@@ -43,7 +43,7 @@ def stop():
 #    delai7 = delai6 + 1.7
 
 
-delai1 = 2
+delai1 = 2.4
 delai2 = delai1 + 2
 
 def dodge():
@@ -56,40 +56,14 @@ def dodge():
     print("time since detection:    ",time_since_detect)
 
     if time_since_detect <= delai1:
+        mv.stop()
+    elif time_since_detect <= delai2:
         mv.turn_wheels(0)
         mv.move_back()
-    elif time_since_detect <= delai2:
-        mv.stop()
     else:
         mv.stop()
 
-#    if time_since_detect <= delai1:
-#        mv.move_back()
-#        print("1")
-#
-#    elif time_since_detect <= delai2:
-#        mv.move_back()
-#        mv.turn_wheels(-55)
-#        print("2")
-#
-#    elif time_since_detect <= delai3:
-#        mv.stop()
-#        print("3")
-#
-#    elif time_since_detect <= delai4:
-#        mv.move_frontward()
-#        mv.turn_wheels(0)
-#        print("4")
-#    elif time_since_detect <= delai5:
-#        mv.move_frontward()
-#        mv.turn_wheels(-55)
-#        print("5")
-#
-#    elif time_since_detect <= delai6:
-#        mv.move_frontward()
-#        mv.turn_wheels(0)
-#        print("6")
-#
+
 #    elif time_since_detect <= delai7 and not line_follower.get_line_follower_result()[2]:
 #        mv.move_frontward()
 #        mv.turn_wheels(-45)
@@ -118,7 +92,7 @@ def process_picar(number, q):
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
 
-                if last_range_value <= 15:
+                if last_range_value <= 12:
                     last_range_value = 50
                     detection_time = time.perf_counter()
                     mv.stop()
