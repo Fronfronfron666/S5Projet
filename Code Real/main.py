@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     try:
         while True:
-            mv.turn_wheels(-45)
+            mv.turn_wheels(45)
             time.sleep(0.9)
 
     except KeyboardInterrupt:
