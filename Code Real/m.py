@@ -120,7 +120,7 @@ def process_picar(number, q):
 def process_sensor_distance(number, q):
     try:
         while True:
-            range_value = us.get_ultrasonic_avoidance()
+            range_value = us.less_than(4)
             manage_truth_table(range_value)
             print("new value    : ",range_value)
             print("truth_table  : ", truth_table)
