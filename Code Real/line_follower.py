@@ -39,94 +39,96 @@ def get_turn_value(line_sensor_results):
     print("previous_sensor_result   :", previous_sensor_result)
     print("previous_sensor_state    :", previous_sensor_state)
     is_spinning = False
-    if line_sensor_results == [False, False, False, False, False]:
+    if not is_stopped:
+        if line_sensor_results == [False, False, False, False, False]:
 
-        if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
-            if lost_counter < 250:
-                turn_limit = -55
-                #is_spinning = True
-            else:
-                is_lost = True
-                if mv.is_moving_frontward:
+            if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
+                if lost_counter < 250:
                     turn_limit = -55
+                    #is_spinning = True
                 else:
-                    turn_limit = find_line()
+                    is_lost = True
+                    if mv.is_moving_frontward:
+                        turn_limit = -55
+                    else:
+                        turn_limit = find_line()
 
-        elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
-            if lost_counter < 250:
-                turn_limit = 55
-                #is_spinning = True
-            else:
-                is_lost = True
-                if mv.is_moving_frontward:
+            elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
+                if lost_counter < 250:
                     turn_limit = 55
+                    #is_spinning = True
                 else:
-                    turn_limit = find_line()
-        else:  # perdu
-            turn_limit = 0
-        lost_counter += 1
+                    is_lost = True
+                    if mv.is_moving_frontward:
+                        turn_limit = 55
+                    else:
+                        turn_limit = find_line()
+            else:  # perdu
+                turn_limit = 0
+            lost_counter += 1
 
-    else:
-        lost_counter = 0
-        is_lost = False
-        if line_sensor_results == [True, True, True, True, True] and previous_sensor_state != [False, False, False, False, False]:  # stop vehicle
-            turn_limit = 0
-            mv.stop()
-            is_stopped = True
-
-        elif line_sensor_results == [True, False, False, False, False]:
-            if previous_sensor_state == [False, True, False, False, False] or previous_sensor_state == [True, True, False, False, False] or previous_sensor_state == [False, False, False, False, False]:
-                turn_limit = -40
-            else:
-                turn_limit = 20
-
-        elif line_sensor_results == [False, False, False, False, True]:
-            if previous_sensor_state == [False, False, False, True, False] or previous_sensor_state == [False, False, False, True, True] or previous_sensor_state == [False, False, False, False, False]:
-                turn_limit = 40
-            else:
-                turn_limit = -20
-
-        elif line_sensor_results == [False, True, False, False, False]:
-            if previous_sensor_state == [True, False, False, False, False]:
-                turn_limit = 5
-            else:
-                turn_limit = -10
-
-        elif line_sensor_results == [False, False, False, True, False]:
-            if previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
-                turn_limit = -5
-            else:
-                turn_limit = 10
-
-        elif line_sensor_results == [False, False, True, False, False]:
-            turn_limit = 0
-
-        elif line_sensor_results == [False, True, True, False, False]:
-            if previous_sensor_state == [False, True, False, False, False]:
-                turn_limit = -10
-            else:
-                turn_limit = 10
-
-        elif line_sensor_results == [False, False, True, True, False]:
-            if previous_sensor_state == [False, False, False, True, False]:
-                turn_limit = 10
-            else:
-                turn_limit = -10
-
-        elif line_sensor_results == [True, True, False, False, False]:
-            if previous_sensor_state == [True, False, False, False, False]:
-                turn_limit = -5
-            else:
-                turn_limit = -12
-
-        elif line_sensor_results == [False, False, False, True, True]:
-            if previous_sensor_state == [False, False, False, False, True]:
-                turn_limit = 5
-            else:
-                turn_limit = 12
         else:
-            print("Comprends pas")
+            lost_counter = 0
+            is_lost = False
+            if line_sensor_results == [True, True, True, True, True] and previous_sensor_state != [False, False, False, False, False]:  # stop vehicle
+                turn_limit = 0
+                mv.stop()
+                is_stopped = True
 
+            elif line_sensor_results == [True, False, False, False, False]:
+                if previous_sensor_state == [False, True, False, False, False] or previous_sensor_state == [True, True, False, False, False] or previous_sensor_state == [False, False, False, False, False]:
+                    turn_limit = -40
+                else:
+                    turn_limit = 20
+
+            elif line_sensor_results == [False, False, False, False, True]:
+                if previous_sensor_state == [False, False, False, True, False] or previous_sensor_state == [False, False, False, True, True] or previous_sensor_state == [False, False, False, False, False]:
+                    turn_limit = 40
+                else:
+                    turn_limit = -20
+
+            elif line_sensor_results == [False, True, False, False, False]:
+                if previous_sensor_state == [True, False, False, False, False]:
+                    turn_limit = 5
+                else:
+                    turn_limit = -10
+
+            elif line_sensor_results == [False, False, False, True, False]:
+                if previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
+                    turn_limit = -5
+                else:
+                    turn_limit = 10
+
+            elif line_sensor_results == [False, False, True, False, False]:
+                turn_limit = 0
+
+            elif line_sensor_results == [False, True, True, False, False]:
+                if previous_sensor_state == [False, True, False, False, False]:
+                    turn_limit = -10
+                else:
+                    turn_limit = 10
+
+            elif line_sensor_results == [False, False, True, True, False]:
+                if previous_sensor_state == [False, False, False, True, False]:
+                    turn_limit = 10
+                else:
+                    turn_limit = -10
+
+            elif line_sensor_results == [True, True, False, False, False]:
+                if previous_sensor_state == [True, False, False, False, False]:
+                    turn_limit = -5
+                else:
+                    turn_limit = -12
+
+            elif line_sensor_results == [False, False, False, True, True]:
+                if previous_sensor_state == [False, False, False, False, True]:
+                    turn_limit = 5
+                else:
+                    turn_limit = 12
+            else:
+                print("Comprends pas")
+    else:
+        turn_limit = 0
     return turn_limit
 
 
