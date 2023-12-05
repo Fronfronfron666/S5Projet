@@ -66,9 +66,9 @@ def check_max_and_min_speed():
 def accelerate():
     global currentspeed
     if currentspeed == 0:
-        currentspeed = 1
+        currentspeed = 5
     elif currentspeed <= 30:
-        currentspeed += 0.1
+        currentspeed += 0.15
     else:
         currentspeed +=0.5
     check_max_and_min_speed()
@@ -134,12 +134,12 @@ def move_back_track_4():
 def stop():
     global currentspeed
     print("current speed: ", currentspeed)
-    if currentspeed <= 20:
+    if currentspeed <= 10:
+        currentspeed = 0
+    elif currentspeed <= 30:
         currentspeed -= 0.3
-    elif currentspeed <= 50:
-        currentspeed -= 0.6
     else:
-        currentspeed -= 1
+        currentspeed -= 0.5
     check_max_and_min_speed()
     set_current_speed()
 
