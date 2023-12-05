@@ -38,7 +38,7 @@ def dodge():
     line_follower.previous_sensor_result = [False, False, False, False, False]
 
     time_since_detect = time.perf_counter() - detection_time
-    print("time since detection:    ",time_since_detect)
+    #print("time since detection:    ",time_since_detect)
 
     if time_since_detect <= delai1:
         mv.stop()
@@ -64,7 +64,6 @@ def dodge():
         mv.turn_wheels(45)
         mv.move_frontward()
     elif not line_follower.get_line_follower_result()[2]:
-        print("8")
         mv.move_frontward()
         mv.turn_wheels(35)
     else:
@@ -90,7 +89,7 @@ def process_picar(number, q):
                 last_range_value = q.get()
                 manage_truth_table(last_range_value)
 
-            print("truth_table  :", truth_table)
+            #print("truth_table  :", truth_table)
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
@@ -101,7 +100,7 @@ def process_picar(number, q):
                     flag = True
 
             else:
-                print("Dodging")
+                #print("Dodging")
                 dodge()
 
     except KeyboardInterrupt:
