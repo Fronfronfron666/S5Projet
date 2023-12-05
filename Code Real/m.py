@@ -88,7 +88,7 @@ def process_picar(number, q):
                     mv.stop()
                     flag = True
 
-                elif last_range_value <= 15:
+                elif last_range_value <= 20:
                     mv.slow_down_to(15)
                 elif last_range_value <= 38:
                     mv.slow_down_to(30)
