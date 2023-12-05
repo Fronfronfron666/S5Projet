@@ -69,10 +69,10 @@ def dodge():
     else:
         flag = False
 
+last_range_value = 50
 
 def process_picar(number, q):
-    global detection_time, flag
-    last_range_value = 50
+    global detection_time, flag, last_range_value
     try:
         while True:
             if q.empty() is False:
