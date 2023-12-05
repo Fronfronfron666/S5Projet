@@ -16,17 +16,17 @@ currentspeed = 0
 wheel_angle = 0
 is_moving_frontward = True
 
-def get_new_turn_value_under_limit(limit):
+def get_new_turn_value_under_limit(target_angle):
     if currentspeed <= 10:
         change_value = 5
     else:
         change_value = 1
 
-    if wheel_angle - 90 - ajustement_angle_roues <= limit - change_value:
+    if wheel_angle - 90 - ajustement_angle_roues <= target_angle - change_value:
         return wheel_angle - 90 - ajustement_angle_roues + change_value
-    elif wheel_angle - 90 - ajustement_angle_roues >= limit + change_value:
+    elif wheel_angle - 90 - ajustement_angle_roues >= target_angle + change_value:
         return wheel_angle - 90 - ajustement_angle_roues - change_value
-    return limit
+    return target_angle
 
 
 def slow_down_to(target):
