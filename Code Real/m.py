@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import numpy as np
 from picar import front_wheels
 from picar import back_wheels
 import time
@@ -70,7 +71,16 @@ def dodge():
         last_range_value = 40
         flag = False
 
-last_range_value = 40
+truth_table = [50,50,50,50,50]
+
+def manage_truth_table(new_value):
+    global truth_table
+    truth_table[4] =truth_table[3]
+    truth_table[3] =truth_table[2]
+    truth_table[2] =truth_table[1]
+    truth_table[1] =truth_table[0]
+    truth_table[0] = new_value
+
 
 def process_picar(number, q):
     global detection_time, flag, last_range_value
@@ -86,15 +96,15 @@ def process_picar(number, q):
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-                if last_range_value <= 13:
+                if np.median(truth_table) <= 13:
                     mv.stop()
                     detection_time = time.perf_counter()
                     mv.stop()
                     flag = True
 
-                elif last_range_value <= 20:
+                elif np.median(truth_table) <= 20:
                     mv.slow_down_to(15)
-                elif last_range_value <= 38:
+                elif np.median(truth_table) <= 38:
                     mv.slow_down_to(30)
 
             else:
