@@ -23,7 +23,7 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
     return previous_result, previous_state
 
 
-lost_counter_threshhold = 350
+lost_counter_threshhold = 250
 
 
 def find_line():
@@ -50,7 +50,7 @@ def get_turn_value(line_sensor_results):
             if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False, False, False]:
                 if lost_counter < lost_counter_threshhold:
                     turn_limit = -55
-                    is_spinning = True
+                    #is_spinning = True
                 else:
                     is_lost = True
                     if mv.is_moving_frontward:
@@ -61,7 +61,7 @@ def get_turn_value(line_sensor_results):
             elif previous_sensor_state == [False, False, False, False, True] or previous_sensor_state == [False, False, False, True, True]:
                 if lost_counter < lost_counter_threshhold:
                     turn_limit = 55
-                    is_spinning = True
+                    #is_spinning = True
                 else:
                     is_lost = True
                     if mv.is_moving_frontward:
@@ -82,13 +82,13 @@ def get_turn_value(line_sensor_results):
 
             elif line_sensor_results == [True, False, False, False, False]:
                 if previous_sensor_state == [False, True, False, False, False] or previous_sensor_state == [True, True, False, False, False] or previous_sensor_state == [False, False, False, False, False]:
-                    turn_limit = -55
+                    turn_limit = -35
                 else:
                     turn_limit = 20
 
             elif line_sensor_results == [False, False, False, False, True]:
                 if previous_sensor_state == [False, False, False, True, False] or previous_sensor_state == [False, False, False, True, True] or previous_sensor_state == [False, False, False, False, False]:
-                    turn_limit = 55
+                    turn_limit = 35
                 else:
                     turn_limit = -20
 
