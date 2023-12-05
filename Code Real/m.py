@@ -22,15 +22,26 @@ def stop():
     fw.turn_straight()
 
 
-#pour MAX_SPEED = 80
-delai1 = 1
-delai2 = delai1 + 1.2
-delai3 = delai2 + 1
+if mv.MAX_SPEED == 80:
+    delai1 = 1
+    delai2 = delai1 + 1.2
+    delai3 = delai2 + 1
 
-delai4 = delai3 + 1.8
-delai5 = delai4 + 1.1
-delai6 = delai5 + 0
-delai7 = delai6 + 1.7
+    delai4 = delai3 + 1.8
+    delai5 = delai4 + 1.1
+    delai6 = delai5 + 0
+    delai7 = delai6 + 1.7
+
+elif mv.MAX_SPEED == 60:
+    delai1 = 1
+    delai2 = delai1 + 1.2
+    delai3 = delai2 + 1
+
+    delai4 = delai3 + 1.8
+    delai5 = delai4 + 1.1
+    delai6 = delai5 + 0
+    delai7 = delai6 + 1.7
+
 
 def dodge():
     global detection_time, flag
