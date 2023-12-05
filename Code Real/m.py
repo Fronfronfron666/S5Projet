@@ -101,10 +101,7 @@ def process_picar(number, q):
                     mv.stop()
                     flag = True
 
-                elif np.median(truth_table) <= 20:
-                    mv.slow_down_to(15)
-                elif np.median(truth_table) <= 38:
-                    mv.slow_down_to(30)
+
 
             else:
                 dodge()
