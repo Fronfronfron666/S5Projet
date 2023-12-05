@@ -45,8 +45,8 @@ def stop():
 
 delai1 = 2.4
 delai2 = delai1 + 1.1
-delai3 = delai2 + 0.6
-delai4 = delai3 + 2
+delai3 = delai2 + 2
+delai4 = delai3 + 0.6
 delai5 = delai4 + 0.3
 delai6 = delai5 + 1.6
 delai7 = delai6 + 0.7
@@ -67,10 +67,10 @@ def dodge():
         mv.turn_wheels(0)
         mv.move_back()
     elif time_since_detect <= delai3:
-        mv.stop()
-        mv.turn_wheels(0)
-    elif time_since_detect <= delai4:
         mv.turn_wheels(-35)
+        mv.move_frontward()
+    elif time_since_detect <= delai4:
+        mv.turn_wheels(0)
         mv.move_frontward()
     elif time_since_detect <= delai5:
         mv.turn_wheels(45)
