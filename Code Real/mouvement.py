@@ -46,13 +46,13 @@ def checkCallibration():
     bw.stop()
 
 def spin_left():
-    bw.left_wheel.forward()
+    bw.left_wheel.stop()
     bw.right_wheel.backward()
     set_current_speed()
 
 def spin_right():
     bw.left_wheel.backward()
-    bw.right_wheel.forward()
+    bw.right_wheel.stop()
     set_current_speed()
 
 def check_max_and_min_speed():
@@ -67,16 +67,12 @@ def accelerate():
     global currentspeed
     if currentspeed == 0:
         currentspeed = 1
-    elif currentspeed <= 20:
-        currentspeed += 0.3
+    elif currentspeed <= 30:
+        currentspeed += 0.1
     else:
-        currentspeed +=1
+        currentspeed +=0.5
     check_max_and_min_speed()
 
-def decelerate():
-    global currentspeed
-    currentspeed -= 1
-    check_max_and_min_speed()
 
 def move():
     global is_moving_frontward, currentspeed
