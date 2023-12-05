@@ -13,7 +13,7 @@ bw = back_wheels.Back_Wheels (db='config')
 
 ajustement_angle_roues = 10
 currentspeed = 0
-MAX_SPEED = 30
+MAX_SPEED = 50
 wheel_angle = 0
 is_moving_frontward = True
 
