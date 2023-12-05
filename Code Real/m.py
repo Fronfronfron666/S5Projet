@@ -69,7 +69,6 @@ def dodge():
     else:
         flag = False
 
-last_range_value = 50
 
 def process_picar(number, q):
     global detection_time, flag, last_range_value
@@ -85,6 +84,7 @@ def process_picar(number, q):
                 mv.move_with_spin()
                 if mv.currentspeed <=40:
                     if last_range_value <= 12:
+                        print("true")
                         detection_time = time.perf_counter()
                         mv.stop()
                         flag = True
