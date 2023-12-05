@@ -88,6 +88,7 @@ def process_picar(number, q):
         while True:
             if q.empty() is False:
                 manage_truth_table(q.get())
+                print(truth_table)
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
@@ -113,7 +114,6 @@ def process_sensor_distance(number, q):
     try:
         while True:
             range_value = us.get_ultrasonic_avoidance()
-            print("range :  ", range_value)
             q.put(range_value)
     except KeyboardInterrupt:
         stop()
