@@ -2,7 +2,7 @@ from SunFounder_Line_Follower import Line_Follower
 import mouvement as mv
 
 line_follower = Line_Follower.Line_Follower()
-threshold = 100
+threshold = 80
 previous_sensor_result = [False, False, False, False, False]
 previous_sensor_state = [False, False, False, False, False]
 lost_counter = 0
