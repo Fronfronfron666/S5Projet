@@ -9,7 +9,7 @@ lost_counter = 0
 is_lost = False
 is_stopped = False
 is_spinning = False
-MAX_SPEED = 100
+MAX_SPEED = 80
 
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
     data = line_sensor_results
