@@ -29,7 +29,7 @@ delai4 = delai3 + 2
 delai5 = delai4 + 0.7
 delai6 = delai5 + 1.6
 delai7 = delai6 + 0
-delai8 = delai7 + 1.6
+delai8 = delai7 + 1
 
 def dodge():
     global detection_time, flag
@@ -63,8 +63,12 @@ def dodge():
     elif time_since_detect <= delai8:
         mv.turn_wheels(45)
         mv.move_frontward()
+    elif not line_follower.get_line_follower_result()[0]:
+        print("8")
+        mv.move_frontward()
+        mv.turn_wheels(35)
     else:
-        mv.stop()
+        flag = False
 
 
 #    elif time_since_detect <= delai7 and not line_follower.get_line_follower_result()[2]:
