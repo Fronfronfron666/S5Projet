@@ -76,7 +76,7 @@ def dodge():
 #    else:
 #        flag = False
 
-truth_table = [0,0,0,0,0]
+truth_table = [0,0,0,50,50]
 
 def manage_truth_table(value):
     global truth_table
