@@ -93,12 +93,8 @@ def process_picar(number, q):
     try:
         while True:
             if q.empty() is False:
-                value = q.get()
-                manage_truth_table(value)
+                manage_truth_table(q.get())
                 print("truth_table  :", truth_table)
-                #if value is not 0:
-                    #last_range_value = value
-            #print("last range value", last_range_value)
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
