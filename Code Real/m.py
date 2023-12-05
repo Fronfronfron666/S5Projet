@@ -63,7 +63,7 @@ def dodge():
     elif time_since_detect <= delai8:
         mv.turn_wheels(45)
         mv.move_frontward()
-    elif not line_follower.get_line_follower_result()[0]:
+    elif not line_follower.get_line_follower_result()[2]:
         print("8")
         mv.move_frontward()
         mv.turn_wheels(35)
