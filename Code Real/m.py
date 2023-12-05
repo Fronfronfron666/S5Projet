@@ -82,9 +82,9 @@ def manage_truth_table(value):
     global truth_table
     truth_table[4] = truth_table[3]
     truth_table[3] = truth_table[2]
-    truth_table[4] = truth_table[1]
+    truth_table[2] = truth_table[1]
     truth_table[1] = truth_table[0]
-    truth_table[1] = value
+    truth_table[0] = value
 
 
 def process_picar(number, q):
