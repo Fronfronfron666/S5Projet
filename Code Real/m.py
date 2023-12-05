@@ -87,11 +87,7 @@ def process_picar(number, q):
     try:
         while True:
             if q.empty() is False:
-                new_value = q.get()
-                print("new value:   ", new_value)
-                print("Last value:  ", last_range_value)
-                if 1.5 * last_range_value > new_value > 0.5 * last_range_value:
-                    last_range_value = new_value
+                manage_truth_table(q.get())
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
