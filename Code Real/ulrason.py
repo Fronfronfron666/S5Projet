@@ -4,3 +4,5 @@ ultrasonic_avoidance = Ultrasonic_Avoidance.Ultrasonic_Avoidance(20)
 
 def get_ultrasonic_avoidance():
         return ultrasonic_avoidance.get_distance()
+def less_than():
+        return ultrasonic_avoidance.less_than(8)

@@ -92,7 +92,7 @@ def process_picar(number, q):
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
 
-                if last_range_value <= 8:
+                if last_range_value == 1:
                     last_range_value = 50
                     detection_time = time.perf_counter()
                     mv.stop()
@@ -108,8 +108,7 @@ def process_picar(number, q):
 def process_sensor_distance(number, q):
     try:
         while True:
-            time.sleep(0.2)
-            range_value = us.get_ultrasonic_avoidance()
+            range_value = us.less_than()
             print(range_value)
             q.put(range_value)
     except KeyboardInterrupt:
