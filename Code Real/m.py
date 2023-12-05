@@ -70,41 +70,23 @@ def dodge():
         flag = False
 
 
-truth_table = [0,0,50,50,50]
-
-def manage_truth_table(value):
-    global truth_table
-    truth_table[4] = truth_table[3]
-    truth_table[3] = truth_table[2]
-    truth_table[2] = truth_table[1]
-    truth_table[1] = truth_table[0]
-    truth_table[0] = value
-
-
 def process_picar(number, q):
-    global detection_time, flag, truth_table
+    global detection_time, flag
+    last_range_value = 50
     try:
         while True:
             if q.empty() is False:
                 last_range_value = q.get()
-                manage_truth_table(last_range_value)
 
             #print("truth_table  :", truth_table)
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-                if line_follower.get_line_follower_result()[2] == True:
-                    if mv.currentspeed <=40:
-                        if sum(truth_table) <= 36:
-                            detection_time = time.perf_counter()
-                            mv.stop()
-                            flag = True
-                    else:
-                        if sum(truth_table) <= 68:
-                            detection_time = time.perf_counter()
-                            mv.stop()
-                            flag = True
-
+                if mv.currentspeed <=40:
+                    if last_range_value <= 10:
+                        detection_time = time.perf_counter()
+                        mv.stop()
+                        flag = True
             else:
                 #print("Dodging")
                 dodge()
@@ -127,9 +109,9 @@ if __name__ == '__main__':
     q = multiprocessing.Manager().Queue()
     number = 0
 
-    #p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
+    p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
     p_distance = multiprocessing.Process(target=process_sensor_distance, args=(number, q))
-    #p_picar.start()
+    p_picar.start()
     p_distance.start()
-    #p_picar.join()
+    p_picar.join()
     p_distance.join()
