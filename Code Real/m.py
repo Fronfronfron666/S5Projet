@@ -109,6 +109,7 @@ def process_sensor_distance(number, q):
     try:
         while True:
             range_value = us.get_ultrasonic_avoidance()
+            print(range_value)
             q.put(range_value)
     except KeyboardInterrupt:
         stop()
@@ -118,9 +119,9 @@ if __name__ == '__main__':
     q = multiprocessing.Manager().Queue()
     number = 0
 
-    p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
+    #p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
     p_distance = multiprocessing.Process(target=process_sensor_distance, args=(number, q))
-    p_picar.start()
+    #p_picar.start()
     p_distance.start()
-    p_picar.join()
+    #p_picar.join()
     p_distance.join()
