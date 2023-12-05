@@ -22,7 +22,7 @@ def stop():
     fw.turn_straight()
 
 
-if mv.MAX_SPEED == 80:
+if line_follower.MAX_SPEED == 80:
     delai1 = 1
     delai2 = delai1 + 1.2
     delai3 = delai2 + 1
@@ -32,7 +32,7 @@ if mv.MAX_SPEED == 80:
     delai6 = delai5 + 0
     delai7 = delai6 + 1.7
 
-elif mv.MAX_SPEED == 60:
+elif line_follower.MAX_SPEED == 60:
     delai1 = 1
     delai2 = delai1 + 1.2
     delai3 = delai2 + 1
