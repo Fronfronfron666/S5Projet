@@ -80,7 +80,7 @@ def process_picar(number, q):
                 new_value = q.get()
                 print("new value:   ", new_value)
                 print("Last value:  ", last_range_value)
-                if new_value < 1.25 * last_range_value or new_value > 0.75 * last_range_value:
+                if 1.25 * last_range_value > new_value > 0.75 * last_range_value:
                     last_range_value = new_value
 
             if not flag:
