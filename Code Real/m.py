@@ -94,8 +94,8 @@ def process_picar(number, q):
         while True:
             if q.empty() is False:
                 manage_truth_table(q.get())
-                print("truth_table  :", truth_table)
 
+            print("truth_table  :", truth_table)
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
