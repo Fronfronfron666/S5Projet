@@ -100,7 +100,7 @@ def process_picar(number, q):
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
 
-                if sum(truth_table) <= 25:
+                if sum(truth_table) <= 35:
                     detection_time = time.perf_counter()
                     mv.stop()
                     flag = True
