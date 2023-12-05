@@ -77,7 +77,6 @@ def process_picar(number, q):
         while True:
             if q.empty() is False:
                 last_range_value = q.get()
-                print("last range value    :   ", last_range_value)
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
@@ -114,9 +113,9 @@ if __name__ == '__main__':
     q = multiprocessing.Manager().Queue()
     number = 0
 
-    #p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
+    p_picar = multiprocessing.Process(target=process_picar, args=(number, q))
     p_distance = multiprocessing.Process(target=process_sensor_distance, args=(number, q))
-    #p_picar.start()
+    p_picar.start()
     p_distance.start()
-    #p_picar.join()
+    p_picar.join()
     p_distance.join()
