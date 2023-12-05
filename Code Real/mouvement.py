@@ -17,7 +17,7 @@ wheel_angle = 0
 is_moving_frontward = True
 
 def get_new_turn_value_under_limit(target_angle):
-    if currentspeed <= 10:
+    if currentspeed <= 25:
         change_value = 5
     else:
         change_value = 1
