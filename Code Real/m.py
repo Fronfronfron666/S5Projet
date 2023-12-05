@@ -87,8 +87,10 @@ def process_picar(number, q):
     try:
         while True:
             if q.empty() is False:
-                manage_truth_table(q.get())
-                print(truth_table)
+                new_value = q.get()
+                if 1.4 * np.median(truth_table) > new_value > 0.6 * np.median(truth_table):
+                    manage_truth_table(q.get())
+                    print(truth_table)
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
