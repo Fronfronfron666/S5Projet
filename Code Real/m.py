@@ -69,6 +69,7 @@ def dodge():
     else:
         flag = False
 
+last_range_value = 50
 
 def process_picar(number, q):
     global detection_time, flag, last_range_value
@@ -78,7 +79,6 @@ def process_picar(number, q):
                 last_range_value = q.get()
                 print("last range value    :   ", last_range_value)
 
-            #print("truth_table  :", truth_table)
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
