@@ -13,7 +13,6 @@ bw = back_wheels.Back_Wheels (db='config')
 
 ajustement_angle_roues = 10
 currentspeed = 0
-MAX_SPEED = 90
 wheel_angle = 0
 is_moving_frontward = True
 
@@ -57,9 +56,9 @@ def spin_right():
     set_current_speed()
 
 def check_max_and_min_speed():
-    global currentspeed, MAX_SPEED
-    if currentspeed > MAX_SPEED:
-        currentspeed = MAX_SPEED
+    global currentspeed
+    if currentspeed > lf.MAX_SPEED:
+        currentspeed = lf.MAX_SPEED
     elif currentspeed <= 0:
         currentspeed = 0
 
