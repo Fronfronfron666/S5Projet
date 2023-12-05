@@ -76,7 +76,9 @@ def process_picar(number, q):
     try:
         while True:
             if q.empty() is False:
-                last_range_value = q.get()
+                new_value = q.get()
+                if new_value < 1.15 * last_range_value or new_value > 0.85 * last_range_value:
+                    last_range_value = new_value
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
