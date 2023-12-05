@@ -121,15 +121,15 @@ def get_turn_value(line_sensor_results):
 
             elif line_sensor_results == [True, True, False, False, False]:
                 if previous_sensor_state == [True, False, False, False, False]:
-                    turn_limit = -5
+                    turn_limit = -30
                 else:
-                    turn_limit = -12
+                    turn_limit = -20
 
             elif line_sensor_results == [False, False, False, True, True]:
                 if previous_sensor_state == [False, False, False, False, True]:
-                    turn_limit = 5
+                    turn_limit = 30
                 else:
-                    turn_limit = 12
+                    turn_limit = 20
             else:
                 print("Comprends pas")
     else:
