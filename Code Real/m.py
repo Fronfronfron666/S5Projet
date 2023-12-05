@@ -44,7 +44,9 @@ def stop():
 
 
 delai1 = 2.4
-delai2 = delai1 + 2
+delai2 = delai1 + 1.6
+delai3 = delai2 + 1.4
+delai4 = delai3 + 1.4
 
 def dodge():
     global detection_time, flag
@@ -60,6 +62,12 @@ def dodge():
     elif time_since_detect <= delai2:
         mv.turn_wheels(0)
         mv.move_back()
+    elif time_since_detect <= delai3:
+        mv.turn_wheels(-35)
+        mv.move_with_spin()
+    elif time_since_detect <= delai3:
+        mv.turn_wheels(35)
+        mv.move_with_spin()
     else:
         mv.stop()
 
