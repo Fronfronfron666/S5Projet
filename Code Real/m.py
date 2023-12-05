@@ -93,11 +93,17 @@ def process_picar(number, q):
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-
-                if sum(truth_table) <= 68:
-                    detection_time = time.perf_counter()
-                    mv.stop()
-                    flag = True
+                if line_follower.get_line_follower_result()[2] == True:
+                    if mv.currentspeed <=40:
+                        if sum(truth_table) <= 36:
+                            detection_time = time.perf_counter()
+                            mv.stop()
+                            flag = True
+                    else:
+                        if sum(truth_table) <= 68:
+                            detection_time = time.perf_counter()
+                            mv.stop()
+                            flag = True
 
             else:
                 #print("Dodging")
