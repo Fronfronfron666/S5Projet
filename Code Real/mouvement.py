@@ -62,7 +62,12 @@ def check_max_and_min_speed():
 
 def accelerate():
     global currentspeed
-    currentspeed += 1
+    if currentspeed == 0:
+        currentspeed = 1
+    elif currentspeed <= 20:
+        currentspeed += 0.3
+    else:
+        currentspeed +=1
     check_max_and_min_speed()
 
 def decelerate():
