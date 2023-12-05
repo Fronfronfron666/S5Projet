@@ -134,11 +134,15 @@ def move_back_track_4():
 def stop():
     global currentspeed
     print("current speed: ", currentspeed)
-    currentspeed -= 0.5
+    if currentspeed <= 20
+        currentspeed -= 0.3
+    elif currentspeed <= 50
+        currentspeed -= 0.6
+    else:
+        currentspeed -= 1
     check_max_and_min_speed()
     set_current_speed()
-    #if currentspeed == 0:
-        #bw.stop()
+
 
 def stop_boucle():
     global currentspeed
@@ -162,7 +166,7 @@ def move_back():
     else:
         print("no")
         bw.forward()
-        currentspeed += 1
+        accelerate()
         set_current_speed()
         check_max_and_min_speed()
 
@@ -176,7 +180,6 @@ def move_frontward():
     else:
         bw.backward()
         accelerate()
-        currentspeed += 1
         set_current_speed()
         check_max_and_min_speed()
 
