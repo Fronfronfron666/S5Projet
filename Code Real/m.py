@@ -81,21 +81,21 @@ def manage_truth_table(new_value):
     truth_table[1] =truth_table[0]
     truth_table[0] = new_value
 
-
+last_range_value = 100
 def process_picar(number, q):
     global detection_time, flag, last_range_value
     try:
         while True:
             if q.empty() is False:
-                new_value = q.get()
-                if 1.4 * np.median(truth_table) > new_value > 0.6 * np.median(truth_table):
-                    manage_truth_table(q.get())
-                    print(truth_table)
+                last_range_value = q.get()
+                #if 1.4 * np.median(truth_table) > new_value > 0.6 * np.median(truth_table):
+                    #manage_truth_table(q.get())
+                    #print(truth_table)
 
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-                if np.median(truth_table) <= 13:
+                if last_range_value <= 13:
                     mv.stop()
                     detection_time = time.perf_counter()
                     mv.stop()
