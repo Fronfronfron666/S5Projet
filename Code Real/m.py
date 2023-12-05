@@ -77,6 +77,7 @@ def process_picar(number, q):
         while True:
             if q.empty() is False:
                 last_range_value = q.get()
+                print("last range value    :   ", last_range_value)
 
             #print("truth_table  :", truth_table)
             if not flag:
@@ -98,7 +99,6 @@ def process_sensor_distance(number, q):
     try:
         while True:
             range_value = us.get_ultrasonic_avoidance()
-            print(range_value)
             q.put(range_value)
             time.sleep(0.2)
     except KeyboardInterrupt:
