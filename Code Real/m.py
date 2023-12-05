@@ -28,7 +28,7 @@ delai3 = delai2 + 0.6
 delai4 = delai3 + 2
 delai5 = delai4 + 0.7
 delai6 = delai5 + 1.6
-delai7 = delai6 + 0.3
+delai7 = delai6 + 0.1
 delai8 = delai7 + 1.6
 
 def dodge():
