@@ -79,6 +79,7 @@ def get_turn_value(line_sensor_results):
                 else:
                     if not never_lost:
                         is_lost = True
+                        is_getting_lost = False
                     if mv.is_moving_frontward:
                         turn_limit = -55
                     else:
@@ -95,6 +96,7 @@ def get_turn_value(line_sensor_results):
                 else:
                     if not never_lost:
                         is_lost = True
+                        is_getting_lost = False
                     if mv.is_moving_frontward:
                         turn_limit = 55
                     else:
