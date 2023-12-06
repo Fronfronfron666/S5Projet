@@ -1,5 +1,6 @@
 from SunFounder_Line_Follower import Line_Follower
 import mouvement as mv
+import settings
 
 line_follower = Line_Follower.Line_Follower()
 threshold = 100
@@ -10,7 +11,10 @@ currentspeed = 0
 is_lost = False
 is_stopped = False
 is_spinning = False
-can_spin = True
+
+can_spin = settings.can_spin
+never_lost = settings.never_lost
+
 if can_spin:
     MAX_SPEED = 100
 else:
@@ -65,7 +69,8 @@ def get_turn_value(line_sensor_results):
                     if can_spin:
                         is_spinning = True
                 else:
-                    is_lost = True
+                    if not never_lost:
+                        is_lost = True
                     if mv.is_moving_frontward:
                         turn_limit = -55
                     else:
@@ -77,7 +82,8 @@ def get_turn_value(line_sensor_results):
                     if can_spin:
                         is_spinning = True
                 else:
-                    is_lost = True
+                    if not never_lost:
+                        is_lost = True
                     if mv.is_moving_frontward:
                         turn_limit = 55
                     else:
