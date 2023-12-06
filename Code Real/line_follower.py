@@ -100,7 +100,6 @@ def get_turn_value(line_sensor_results):
                 turn_limit = 0
             lost_counter += 1
 
-        elif previous_sensor_result == [False, False, False, False, False]:
             lost_counter = 0
             is_lost = False
             if line_sensor_results == [True, True, True, True, True] and previous_sensor_state != [False, False, False,
