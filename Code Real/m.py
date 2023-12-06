@@ -85,7 +85,7 @@ def process_picar(number, q):
                 mv.move_with_spin()
 
                 if line_follower.can_spin:
-                    if line_follower.last_range_value <= 18 and line_follower.currentspeed >= 35:
+                    if line_follower.last_range_value <= 14 and line_follower.currentspeed >= 40:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
