@@ -76,7 +76,7 @@ def dodge():
         mv.move_frontward()
     elif not line_follower.get_line_follower_result()[4]:
         mv.move_frontward()
-        mv.turn_wheels(20)
+        mv.turn_wheels(35)
     else:
         line_follower.last_range_value = 40
         flag = False
