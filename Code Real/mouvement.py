@@ -18,9 +18,9 @@ is_moving_frontward = True
 
 def get_new_turn_value_under_limit(target_angle):
     if lf.currentspeed <= 25:
-        change_value = 5
+        change_value = 10
     else:
-        change_value = 1
+        change_value = 2
 
     if wheel_angle - 90 - ajustement_angle_roues <= target_angle - change_value:
         return wheel_angle - 90 - ajustement_angle_roues + change_value
