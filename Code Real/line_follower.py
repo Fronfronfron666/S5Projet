@@ -48,6 +48,7 @@ def find_line():
 
 def get_turn_value(line_sensor_results):
     global is_getting_lost, is_spinning, previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle, lost_counter, is_lost, is_stopped
+    print(line_sensor_results)
     if can_spin:
         if currentspeed <= 30:
             lost_counter_threshhold = 180
