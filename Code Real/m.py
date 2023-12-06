@@ -97,23 +97,23 @@ def process_picar(number, q):
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
-                        #flag = True
+                        flag = True
                     elif line_follower.last_range_value <= 13:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
-                        #flag = True
+                        flag = True
                 else:
                     if line_follower.last_range_value <= 15 and line_follower.currentspeed >= 60:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
-                        #flag = True
+                        flag = True
                     elif line_follower.last_range_value <= 13:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
-                        #flag = True
+                        flag = True
             else:
                 dodge()
 
