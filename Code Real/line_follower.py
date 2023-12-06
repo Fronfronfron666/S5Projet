@@ -66,6 +66,7 @@ def get_turn_value(line_sensor_results):
                                                                                   previous_sensor_state)
 
     is_spinning = False
+
     if not is_stopped:
         if line_sensor_results == [False, False, False, False, False]:
 
@@ -91,13 +92,11 @@ def get_turn_value(line_sensor_results):
                                                                                                           True]:
                 if lost_counter < lost_counter_threshhold:
                     turn_limit = 55
-                    is_getting_lost = True
                     if can_spin:
                         is_spinning = True
                 else:
                     if not never_lost:
                         is_lost = True
-                        is_getting_lost = False
                     if mv.is_moving_frontward:
                         turn_limit = 55
                     else:
@@ -105,31 +104,6 @@ def get_turn_value(line_sensor_results):
             else:  # perdu
                 turn_limit = 0
             lost_counter += 1
-
-        elif is_getting_lost:
-            if line_sensor_results == [True, False, False, False, False] and previous_sensor_state == [True, False, False, False, False]:
-                if previous_sensor_state == [False, True, False, False, False] or previous_sensor_state == [True, True,
-                                                                                                                False,
-                                                                                                                False,
-                                                                                                                False] or previous_sensor_state == [
-                                                                                                                False, False, False, False, False]:
-                    turn_limit = -40
-                else:
-                    turn_limit = 20
-                is_getting_lost = False
-
-
-            elif line_sensor_results == [False, False, False, False, True] and previous_sensor_result == [True, False, False, False, False]:
-                if previous_sensor_state == [False, False, False, True, False] or previous_sensor_state == [False,
-                                                                                                                False,
-                                                                                                                False, True,
-                                                                                                                True] or previous_sensor_state == [
-                                                                                                                False, False, False, False, False]:
-                    turn_limit = 40
-                else:
-                    turn_limit = -20
-                    is_getting_lost = False
-
 
         else:
             lost_counter = 0
