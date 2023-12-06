@@ -25,7 +25,7 @@ def stop():
 
 if line_follower.can_spin:
     delai1 = 2.2
-    delai2 = delai1 + 2.4
+    delai2 = delai1 + 2.5
     delai3 = delai2 + 0.6
     delai4 = delai3 + 2.5
     delai5 = delai4 + 0.5
