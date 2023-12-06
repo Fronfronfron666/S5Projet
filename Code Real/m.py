@@ -23,14 +23,27 @@ def stop():
     fw.turn_straight()
 
 
-delai1 = 2.2
-delai2 = delai1 + 2.2
-delai3 = delai2 + 0.6
-delai4 = delai3 + 3
-delai5 = delai4 + 0.5
-delai6 = delai5 + 1.3
-delai7 = delai6 + 0.1
-delai8 = delai7 + 0.8
+if line_follower.can_spin:
+    delai1 = 2.2
+    delai2 = delai1 + 1.9
+    delai3 = delai2 + 0.6
+    delai4 = delai3 + 2.4
+    delai5 = delai4 + 0.5
+    delai6 = delai5 + 1
+    delai7 = delai6 + 0.1
+    delai8 = delai7 + 0.6
+
+
+else:
+    delai1 = 2.2
+    delai2 = delai1 + 2.2
+    delai3 = delai2 + 0.6
+    delai4 = delai3 + 3
+    delai5 = delai4 + 0.5
+    delai6 = delai5 + 1.3
+    delai7 = delai6 + 0.1
+    delai8 = delai7 + 0.8
+
 
 def dodge():
     global detection_time, flag
@@ -80,16 +93,29 @@ def process_picar(number, q):
             if not flag:
                 mv.turn_wheels(line_follower.get_turn_value(line_follower.get_line_follower_result()))
                 mv.move_with_spin()
-                if line_follower.last_range_value <= 15 and line_follower.currentspeed >= 35:
-                    mv.stop()
-                    detection_time = time.perf_counter()
-                    mv.stop()
-                    flag = True
-                elif line_follower.last_range_value <= 13:
-                    mv.stop()
-                    detection_time = time.perf_counter()
-                    mv.stop()
-                    flag = True
+
+                if line_follower.can_spin:
+                    if line_follower.last_range_value <= 18 and line_follower.currentspeed >= 35:
+                        mv.stop()
+                        detection_time = time.perf_counter()
+                        mv.stop()
+                        flag = True
+                    elif line_follower.last_range_value <= 13:
+                        mv.stop()
+                        detection_time = time.perf_counter()
+                        mv.stop()
+                        flag = True
+                else:
+                    if line_follower.last_range_value <= 15 and line_follower.currentspeed >= 35:
+                        mv.stop()
+                        detection_time = time.perf_counter()
+                        mv.stop()
+                        flag = True
+                    elif line_follower.last_range_value <= 13:
+                        mv.stop()
+                        detection_time = time.perf_counter()
+                        mv.stop()
+                        flag = True
             else:
                 dodge()
 
