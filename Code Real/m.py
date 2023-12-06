@@ -104,7 +104,7 @@ def process_picar(number, q):
                         mv.stop()
                         flag = True
                 else:
-                    if line_follower.last_range_value <= 16 and line_follower.currentspeed >= 60:
+                    if line_follower.last_range_value <= 17 and line_follower.currentspeed >= 60:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
