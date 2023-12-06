@@ -76,7 +76,7 @@ def accelerate():
     elif lf.currentspeed <= 40:
         lf.currentspeed += 0.15
     else:
-        lf.currentspeed +=0.5
+        lf.currentspeed +=0.3
     check_max_and_min_speed()
 
 
