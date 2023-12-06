@@ -32,8 +32,6 @@ if line_follower.can_spin:
     delai6 = delai5 + 1
     delai7 = delai6 + 0.1
     delai8 = delai7 + 0.6
-
-
 else:
     delai1 = 2.2
     delai2 = delai1 + 2.2
