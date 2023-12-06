@@ -34,7 +34,7 @@ if line_follower.can_spin:
     delai8 = delai7 + 0.6
 else:
     delai1 = 2.2
-    delai2 = delai1 + 2#.2
+    delai2 = delai1 + 1.8#2.2
     delai3 = delai2 + 0.6
     delai4 = delai3 + 3
     delai5 = delai4 + 0.5
@@ -104,12 +104,12 @@ def process_picar(number, q):
                         mv.stop()
                         flag = True
                 else:
-                    if line_follower.last_range_value <= 15 and line_follower.currentspeed >= 60:
+                    if line_follower.last_range_value <= 14 and line_follower.currentspeed >= 60:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
                         flag = True
-                    elif line_follower.last_range_value <= 13:
+                    elif line_follower.last_range_value <= 12:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
