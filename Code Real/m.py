@@ -25,9 +25,9 @@ def stop():
 
 
 delai1 = 2.2
-delai2 = delai1 + 2.2
+delai2 = delai1 + 2.15
 delai3 = delai2 + 0.6
-delai4 = delai3 + 2.8
+delai4 = delai3 + 3
 delai5 = delai4 + 0.8
 delai6 = delai5 + 1.3
 delai7 = delai6 + 0.1
