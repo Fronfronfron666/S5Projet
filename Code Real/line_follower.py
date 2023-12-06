@@ -112,7 +112,6 @@ def get_turn_value(line_sensor_results):
                                                                                                        False,
                                                                                                        False]:  # stop vehicle
                 turn_limit = 0
-                mv.stop()
                 is_stopped = True
 
             elif line_sensor_results == [True, False, False, False, False]:

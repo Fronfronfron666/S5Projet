@@ -127,7 +127,7 @@ def move_with_spin():
                     bw.backward()
                     set_current_speed()
     else:
-        stop()
+        final_stop()
 
 
 def move_back_track_4():
@@ -148,6 +148,15 @@ def stop():
     check_max_and_min_speed()
     set_current_speed()
 
+def final_stop():
+    if lf.currentspeed <= 25:
+        lf.currentspeed = 0
+    elif lf.currentspeed <= 40:
+        lf.currentspeed -= 0.7
+    else:
+        lf.currentspeed -= 1
+    check_max_and_min_speed()
+    set_current_speed()
 
 def stop_boucle():
 
