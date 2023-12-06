@@ -18,9 +18,9 @@ is_moving_frontward = True
 
 def get_new_turn_value_under_limit(target_angle):
     if lf.currentspeed <= 25:
-        change_value = 10
+        change_value = 8
     else:
-        change_value = 2
+        change_value = 1.5
 
     if wheel_angle - 90 - ajustement_angle_roues <= target_angle - change_value:
         return wheel_angle - 90 - ajustement_angle_roues + change_value
@@ -38,11 +38,11 @@ def slow_down_to(target):
 
 def turn_wheels(degree):
     global wheel_angle
-    wheel_angle = 90 + int(get_new_turn_value_under_limit(degree)) + ajustement_angle_roues
+    wheel_angle = 90 + get_new_turn_value_under_limit(degree) + ajustement_angle_roues
     #print("int wheel_angle: ", get_new_turn_value_under_limit(degree))
     if wheel_angle > 180:
         wheel_angle = 180
-    fw.turn(wheel_angle)
+    fw.turn(int(wheel_angle))
 
 def turnStraight():
     turn_wheels(0)
