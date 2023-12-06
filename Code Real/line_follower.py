@@ -115,7 +115,7 @@ def get_turn_value(line_sensor_results):
                                                                                                             False,
                                                                                                             False,
                                                                                                             False] or previous_sensor_state == [
-                    False, False, False, False, False]:
+                                                                                                            False, False, False, False, False]:
                     turn_limit = -40
                 else:
                     turn_limit = 20
@@ -125,7 +125,7 @@ def get_turn_value(line_sensor_results):
                                                                                                             False,
                                                                                                             False, True,
                                                                                                             True] or previous_sensor_state == [
-                    False, False, False, False, False]:
+                                                                                                            False, False, False, False, False]:
                     turn_limit = 40
                 else:
                     turn_limit = -20
