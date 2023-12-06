@@ -1,2 +1,3 @@
 can_spin = True
-never_lost = True
+is_lost_later = True
+never_lost = False
