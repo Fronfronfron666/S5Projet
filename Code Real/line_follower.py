@@ -52,10 +52,10 @@ def get_turn_value(line_sensor_results):
             else:
                 lost_counter_threshhold = 450
         else:
-        if currentspeed <= 30:
-            lost_counter_threshhold = 180
-        else:
-            lost_counter_threshhold = 350
+            if currentspeed <= 30:
+                lost_counter_threshhold = 180
+            else:
+                lost_counter_threshhold = 350
     else:
         if currentspeed <= 30:
             lost_counter_threshhold = 250
