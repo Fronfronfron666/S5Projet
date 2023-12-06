@@ -144,7 +144,7 @@ def stop():
     elif lf.currentspeed <= 30:
         lf.currentspeed -= 0.3
     else:
-        lf.currentspeed -= 0.5
+        lf.currentspeed -= 0.3
     check_max_and_min_speed()
     set_current_speed()
 
