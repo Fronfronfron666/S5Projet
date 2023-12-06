@@ -10,7 +10,7 @@ currentspeed = 0
 is_lost = False
 is_stopped = False
 is_spinning = False
-MAX_SPEED = 80
+MAX_SPEED = 90
 last_range_value = 100
 
 
