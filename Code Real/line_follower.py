@@ -17,7 +17,7 @@ can_spin = settings.can_spin
 never_lost = settings.never_lost
 
 if can_spin:
-    MAX_SPEED = 100
+    MAX_SPEED = 80
 else:
     MAX_SPEED = 80
 last_range_value = 100
