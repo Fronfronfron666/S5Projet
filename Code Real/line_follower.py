@@ -10,13 +10,12 @@ currentspeed = 0
 is_lost = False
 is_stopped = False
 is_spinning = False
-can_spin = False
+can_spin = True
 if can_spin:
     MAX_SPEED = 100
 else:
     MAX_SPEED = 80
 last_range_value = 100
-can_spin = False
 
 
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
