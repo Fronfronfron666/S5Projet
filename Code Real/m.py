@@ -98,7 +98,7 @@ def process_picar(number, q):
                         detection_time = time.perf_counter()
                         mv.stop()
                         flag = True
-                    elif line_follower.last_range_value <= 16:
+                    elif line_follower.last_range_value <= 17:
                         mv.stop()
                         detection_time = time.perf_counter()
                         mv.stop()
