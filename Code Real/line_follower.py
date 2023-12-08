@@ -23,6 +23,11 @@ else:
 last_range_value = 100
 
 
+"""
+Entrée: Valeur du capteur de ligne present, passer et l'ancient state du sensor
+Sortie: La valeur passer du capteur et la state du capteur
+Fonction: fait avancer le robot
+"""
 def change_previous_sensor_result(line_sensor_results, previous_sensor_result, previous_sensor_state):
     data = line_sensor_results
     previous_result = previous_sensor_result
@@ -34,7 +39,11 @@ def change_previous_sensor_result(line_sensor_results, previous_sensor_result, p
 
     return previous_result, previous_state
 
-
+"""
+Entrée: N/A
+Sortie: N/A
+Fonction: Place les roues du robot afin de pouvoir retrouver la ligne en reculant
+"""
 def find_line():
     turn_limit = 0
     if previous_sensor_state == [True, False, False, False, False] or previous_sensor_state == [True, True, False,
@@ -45,7 +54,11 @@ def find_line():
         turn_limit = -55
     return turn_limit
 
-
+"""
+Entrée: L'etat du capteur de ligne
+Sortie: L'angle viser des roues
+Fonction: Algorithme de suiveur de ligne
+"""
 def get_turn_value(line_sensor_results):
     global is_getting_lost, is_spinning, previous_sensor_result, previous_sensor_state, stop_vehicle, current_wheel_angle, lost_counter, is_lost, is_stopped
     print(line_sensor_results)
@@ -179,7 +192,11 @@ def get_turn_value(line_sensor_results):
         turn_limit = 0
     return turn_limit
 
-
+"""
+Entrée: N/A
+Sortie: N/A
+Fonction: Retourne le resultat du capteur de ligne en tableau de Bool
+"""
 def get_line_follower_result():
     line_sensor_result = line_follower.read_analog()
     for i in range(len(line_sensor_result)):
