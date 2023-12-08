@@ -155,13 +155,10 @@ Sortie: N/A
 Fonction: Permet au robot de tourner avec une seule roue selon le sens de la vitesse et de l'angle des roues
 """
 def move_with_spin():
-
     global is_moving_frontward
-    #print("is_lost:  ",lf.is_lost)
-    #print("is_moving Frontward:     ", is_moving_frontward)
+
     if not lf.is_stopped:
         if lf.is_lost:
-            #print("move back")
             move_back()
         else:
             if lf.currentspeed != 0 and is_moving_frontward == False:
