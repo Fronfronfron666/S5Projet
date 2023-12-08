@@ -17,7 +17,11 @@ flag = False
 detection_time = time.perf_counter()
 counter = 0
 
-
+"""
+Entrée: N/A
+Sortie: N/A
+Fonction: Arrete les mouvement du robot
+"""
 def stop():
     bw.stop()
     fw.turn_straight()
@@ -35,6 +39,11 @@ delai7 = delai6 + 0.1
 delai8 = delai7 + 0.8
 
 
+"""
+Entrée: N/A
+Sortie: N/A
+Fonction: Sequence pour evite un obstacle
+"""
 def dodge():
     global detection_time, flag
 
@@ -73,6 +82,11 @@ def dodge():
         line_follower.last_range_value = 40
         flag = False
 
+"""
+Entrée: ???
+Sortie: N/A
+Fonction: Definie le fonctionnement du robot (sequence de la course)
+"""
 def process_picar(number, q):
     global detection_time, flag
     try:
@@ -112,6 +126,11 @@ def process_picar(number, q):
     except KeyboardInterrupt:
         stop()
 
+"""
+Entrée: ???
+Sortie: N/A
+Fonction: Lecture du capteur ultrasonic dans un process a part
+"""
 def process_sensor_distance(number, q):
     try:
         while True:
