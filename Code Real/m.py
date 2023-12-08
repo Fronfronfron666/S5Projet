@@ -83,7 +83,7 @@ def dodge():
         flag = False
 
 """
-Entrée: ???
+Entrée:  q: multiprocessing.Manager().Queue()
 Sortie: N/A
 Fonction: Definie le fonctionnement du robot (sequence de la course)
 """
@@ -127,7 +127,7 @@ def process_picar(number, q):
         stop()
 
 """
-Entrée: ???
+Entrée: q: multiprocessing.Manager().Queue()
 Sortie: N/A
 Fonction: Lecture du capteur ultrasonic dans un process a part
 """
